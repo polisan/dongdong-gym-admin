@@ -1,0 +1,76 @@
+/*
+ * This file contains common page style for all page in the app.
+ */
+
+html,
+body {
+    height: 100%;
+    font-family: "Helvetica Neue",Helvetica, Arial, sans-serif;
+}
+img { border: 0; }
+a:hover {
+    color: #008000;
+    text-decoration: none;
+}
+/* html5 */
+article,aside,dialog,header,section,footer,nav,figure,menu{display:block}
+/* color */
+.red { color: red; }
+.white { color: #ffffff;}
+/* width */
+.W500 { width: 500px}
+/* font */
+.FS15 { font-size: 1.5em; }
+/* text-align */
+.center { text-align: center; }
+.right { text-align: right; }
+/* margin */
+.MT15 { margin-top: 15px; }
+.MT25 { margin-top: 25px; }
+.MB25 { margin-bottom: 25px; }
+/* padding */
+.PR0 { padding-right: 0; }
+/* mini icon style */
+.icon-msg-mini {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.icon-msg-mini.info {
+    background: url('../images/icon-small.png') 0 -1050px no-repeat;
+}
+.icon-msg-mini.warning {
+    background: url('../images/icon-small.png') 0 -1024px no-repeat;
+}
+/* CAPTCHA */
+#link-captcha-change {
+    display: inline-block;
+    margin-left: 5px;
+}
+#link-captcha-change:hover {
+    cursor: pointer;
+    color: #5e82e1;
+    text-decoration: underline;
+}
+
+/* page style */
+#wrapper {
+    min-height: 100%;
+    height: auto;
+    background: #EEF3Fa;
+}
+
+.logo{
+    display: block;
+    width: 280px;
+    height: 56px;
+    margin-top: -5px;
+    background: url("../images/login-page-icon.png") -30px -199px no-repeat ;
+}
+
+input.verify-code{
+    display: inline-block;
+    width:40%;
+    margin-right:10px;
+}
