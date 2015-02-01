@@ -1,0 +1,110 @@
+/* 注册时基本样式 */
+
+#reg-main {
+    min-width: 960px;
+    width: 100%;
+    height: 900px;
+    overflow: hidden;
+    background-size: cover;
+    background: #11BB6E;
+}
+.reg-frame {
+    float: left;
+    width: 480px;
+    height: 555px;
+    margin: 30px 0 0 60px;
+    background: url("../images/register-frame.png") no-repeat;
+}
+
+#reg-frame-gym {
+    float: left;
+    width: 480px;
+    height: 745px;
+    margin: 30px 0 0 60px;
+    background: url("../images/register-frame2.png") no-repeat;
+}
+
+#reg-form {
+    margin: 60px 20px 0 20px;
+    padding: 15px 5px 20px 20px;
+    width: auto;
+}
+.reg-step{
+    float: right;
+    margin: 70px 100px 0 0;
+    padding: 20px 30px 0 0;
+}
+.reg-step .separator {
+    display: inline-block;
+    margin-right: 40px;
+    width: 2px;
+    height: 160px;
+    background: #ffffff;
+}
+
+.reg-step-info  {
+    display: inline-block;
+    margin-right: 60px;
+    line-height: 35px;
+    font-size: 1.52em;
+    color: #ffffff;
+}
+.reg-step-info ul {
+    color: #000;
+}
+.reg-step-info ul>li.active {
+    color: #fff;
+}
+.reg-mail {
+    font-size: 1.4em;
+    padding-left: 20px;
+}
+
+.reg-hint {
+    font-size: 0.9em;
+    margin: 5px 0 0 0;
+}
+
+#reg-tips {
+    margin: 20px 0;
+}
+
+.notice {
+    margin-top: 15px;
+}
+
+.reg-success-title {
+    text-align: center;
+    font-size: 3.5em;
+    color: #fff;
+    margin: 40px 0 30px 0;
+}
+
+.btn.btn-input {
+    min-width: 104px;
+}
+.btn-input button {
+    height: 100%;
+    background-color: transparent;
+    border: 0;
+}
+.reg-button {
+    cursor: pointer;
+    background:url("../images/icon-button.png") 0 -104px no-repeat;
+    width:128px;
+    height:52px;
+    border:none;
+    /*zoom: 1;*/
+}
+.reg-button:hover {
+    background:url('../images/icon-button.png') 0 -156px no-repeat;
+}
+
+.sports-checkboxlist-inline {
+    display: inline-block;
+    margin-top: 3px;
+    width: 70px;
+    font-weight: normal;
+    vertical-align: middle;
+    cursor: pointer;
+}
