@@ -34,9 +34,9 @@ $this->params['status']['login'] = true;
 
             <?= $form->field($model, 'verifyCode')->label('验证码:')
                 ->widget(Captcha::className(),
-                    ['template' => '{input}{image} <a href="#">换一张</a>',
+                    ['template' => '{input}{image}'.Html::tag('a', '换一张' , ['id' => 'link-captcha-change']),
                         'options' => [ 'class' => 'form-control' ,'style' => 'display: inline-block; width:40%;margin-right:10px;'],
-                        'imageOptions' => ['alt' => '验证码'],
+                        'imageOptions' => ['id' => 'captcha-img' ,'alt' => '验证码'],
                         'captchaAction' => 'passport/captcha']);
             ?>
 

@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\GymUser;
 use base\NeedLoginController;
 use Yii;
 
@@ -10,7 +11,6 @@ class HomeController extends NeedLoginController
     public function behaviors()
     {
         return [
-
         ];
     }
 
@@ -22,6 +22,7 @@ class HomeController extends NeedLoginController
 
     public function actionIndex()
     {
-        return 'This is homepage.';
+        $model = new GymUser();
+        return $this->render('index', ['model' => $model]);
     }
 }

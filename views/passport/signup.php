@@ -34,9 +34,9 @@ $this->params['status']['reg'] = true;
             <?= $form->field($model, 'passwordRepeat')->label('确认密码')->passwordInput()->hint('再次输入密码') ?>
 
             <?= $form->field($model, 'verifyCode')->label('验证码')->Widget(Captcha::className(),
-                ['template' => '{input}{image} <a href="#">换一张</a>',
+                ['template' => '{input}{image}'.Html::tag('a', '换一张' , ['id' => 'link-captcha-change']),
                     'options' => [ 'class' => 'form-control verify-code'],
-                    'imageOptions' => ['alt' => '验证码'],
+                    'imageOptions' => ['id' => 'captcha-img', 'alt' => '验证码'],
                     'captchaAction' => 'passport/captcha'])
             ?>
 
