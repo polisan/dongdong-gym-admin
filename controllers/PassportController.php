@@ -7,10 +7,12 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
-use app\models\RegisterForm;
+use app\models\SignupForm;
 
 class PassportController extends Controller
 {
+    public $layout = 'passport';
+
     public function behaviors()
     {
         return [
@@ -60,18 +62,40 @@ class PassportController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
-            $this->layout = "passport";
             return $this->render('login', [
                 'model' => $model,
             ]);
         }
     }
 
-    public function actionRegister() {
-        $model = new RegisterForm();
-        $this->layout = "passport";
-        return $this->render('register', [ 'model' => $model ]);
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+//                    return $this->redirect(['passport/signup-verify-email', 'email' => $user->email]);
+                    return $this->goHome();
+                }
+            }
+        }
 
+        return $this->render('signup', ['model' => $model]);
+    }
+
+    public function actionSignupVerifyEmail()
+    {
+        $email = Yii::$app->request->get('email');
+        if (empty($email)) {
+            return $this->goHome();
+        }
+
+        return $this->render('signup_verify_email', ['email' => $email]);
+    }
+
+    public function actionSignupSuccess()
+    {
+        return $this->render('signup_success');
     }
 
     public function actionLogout()

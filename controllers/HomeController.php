@@ -22,6 +22,6 @@ class HomeController extends NeedLoginController
 
     public function actionIndex()
     {
-        return $this->render('index');
+        return 'This is homepage.';
     }
 }

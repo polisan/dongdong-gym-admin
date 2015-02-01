@@ -33,7 +33,7 @@ PassportAsset::register($this);
                 <div class="navbar-right">
                     <?php
                     if (isset($this->params['status']['login']) && $this->params['status']['login']) {
-                        echo '现在还不是动动会员？<a class="link" href="'.Url::to(['passport/register']).'">立即申请</a>';
+                        echo '现在还不是动动会员？<a class="link" href="'.Url::to(['passport/signup']).'">立即申请</a>';
                     }
                     else if (isset($this->params['status']['reg']) && $this->params['status']['reg']) {
                         echo '已有动动场馆账号？<a class="link" href="'.Url::to(['passport/login']).'">立即登录</a>';

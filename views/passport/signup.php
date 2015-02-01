@@ -1,11 +1,4 @@
 <?php
-/*****************************************************************
- * File   : register.php
- * Author : dove
- * Date   : 2/1/15
- * Update : 2/1/15
- * Description: 
- *****************************************************************/
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 use yii\helpers\Html;
@@ -28,22 +21,23 @@ $this->params['status']['reg'] = true;
                 ],
             ]);
             ?>
-            <div id="reg-tips" class="col-md-12">
+            <div id="reg-tips">
                 <i class="icon-msg-mini info col-md-offset-2"></i>
                 每个邮箱只能注册一个账号
             </div>
-            <?php echo $form->field($model, 'email')->label('邮箱')->hint("作为登录账户，可填写未被注册过的邮箱")
-            ; ?>
+            <?= $form->field($model, 'username')->label('用户名') ?>
 
-            <?php echo $form->field($model, 'password')->label('密码')->passwordInput()->hint('字母、数字和英文字符，最短6位，区分大小写'); ?>
+            <?= $form->field($model, 'email')->label('邮箱') ?>
 
-            <?php echo $form->field($model, 'passwordRepeat')->label('确认密码')->passwordInput()->hint('再次输入密码'); ?>
+            <?= $form->field($model, 'password')->label('密码')->passwordInput()->hint('最短6位，区分大小写') ?>
+
+            <?= $form->field($model, 'passwordRepeat')->label('确认密码')->passwordInput()->hint('再次输入密码') ?>
 
             <?= $form->field($model, 'verifyCode')->label('验证码')->Widget(Captcha::className(),
                 ['template' => '{input}{image} <a href="#">换一张</a>',
                     'options' => [ 'class' => 'form-control verify-code'],
                     'imageOptions' => ['alt' => '验证码'],
-                    'captchaAction' => 'passport/captcha']);
+                    'captchaAction' => 'passport/captcha'])
             ?>
 
             <?= $form->field($model, 'isAgree')
