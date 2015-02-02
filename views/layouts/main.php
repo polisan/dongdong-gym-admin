@@ -12,6 +12,7 @@ MainAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php echo $this->head(); ?>
 </head>
@@ -28,15 +29,15 @@ MainAsset::register($this);
                 <a href=""><span class="portrait"></span></a>
                 <div class="account-meta account-info">
                     <?php
-                    if ( $this->params['gym'][0]['authentic'] ) {
+                    if (0) {
                         echo '<span class="authentic authentic-success"><a href="">已认证</a></span>';
                     }
                     else echo '<span class="authentic authentic-fail"><a href="">未认证</a></span>';
                     ?>
-                    <?= Html::a($this->params['account']['name'], ['#'], ['class' => 'nick-name']) ?>
+                    <?= Html::a(Yii::$app->user->identity->username, ['#'], ['class' => 'nick-name']) ?>
                 </div>
                 <div class="account-meta account-logout">
-                    <?= Html::a('退出', ['#'], ['id' => 'logout']) ?>
+                    <?= Html::a('退出', ['passport/logout'], ['id' => 'logout', 'data-method' => 'post']) ?>
                 </div>
             </div>
         </div>
@@ -47,8 +48,8 @@ MainAsset::register($this);
             'items' => [
                 [
                     'label' => '场馆主页',
-                    'url' => ['gym/home'],
-                    'options' => [ 'class' => 'active active-item' ],
+                    'url' => ['home/index'],
+                    'options' => ['class' => 'active active-item'],
                 ],
                 [
                     'label' => '资讯管理',
@@ -67,7 +68,7 @@ MainAsset::register($this);
                     'url' => ['gym/home'],
                 ],
             ],
-            'options' => [ 'class' => 'nav-pills nav-justified nav-gym']
+            'options' => ['class' => 'nav-pills nav-justified nav-gym']
         ]);
         ?>
     </div>

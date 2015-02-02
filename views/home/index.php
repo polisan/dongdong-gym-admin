@@ -1,8 +1,5 @@
 <?php
 use yii\helpers\Html;
-
-$this->params['account'] = $model->getAccount();   // 场馆账号信息（模拟）
-$this->params['gym'] = $model->getGymInfo();      // 场馆信息（模拟）
 ?>
 <div class="homepage-main">
     <div class="container">

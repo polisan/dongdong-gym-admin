@@ -1,13 +1,5 @@
 <?php
-/*****************************************************************
- * File   : registerSuccess.php
- * Author : dove
- * Date   : 1/26/15
- * Update : 1/26/15
- * Description: 
- *****************************************************************/
-$this->title = 'Register';
-$this->params['status']['reg'] = true;
+$this->title = '注册';
 ?>
 <div class="content">
     <div class="container W500 center">
