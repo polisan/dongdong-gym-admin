@@ -12,8 +12,9 @@ PassportAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <?php echo $this->head(); ?>
+    <?php $this->head(); ?>
 </head>
 <body>
 

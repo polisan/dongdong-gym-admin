@@ -12,8 +12,9 @@ MainAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <?php echo $this->head(); ?>
+    <?php $this->head(); ?>
 </head>
 <body>
 
@@ -72,6 +73,7 @@ MainAsset::register($this);
         ?>
     </div>
     <?= $content ?>
+    <div style="clear:both;"></div>
     <footer class="footer">
         <div class="container">
             <p class="pull-left">&copy; DongDong Tec. <?= date('Y') ?></p>

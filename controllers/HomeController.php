@@ -25,4 +25,12 @@ class HomeController extends NeedLoginController
         $model = new GymUser();
         return $this->render('index', ['model' => $model]);
     }
+    public function actionGymlist() {
+        $model = new GymUser();
+        return $this->render('gym_list', ['model' => $model]);
+    }
+    public function actionGymadd() {
+        $model = new GymUser();
+        return $this->render('gym_add', ['model' => $model]);
+    }
 }
