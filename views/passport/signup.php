@@ -3,8 +3,7 @@ use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 use yii\helpers\Html;
 
-$this->title = 'Register';
-$this->params['status']['reg'] = true;
+$this->title = '注册';
 ?>
 <div class="content">
     <div class="container">

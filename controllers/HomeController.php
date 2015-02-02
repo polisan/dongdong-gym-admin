@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use app\models\GymUser;
-use base\NeedLoginController;
+use app\components\NeedLoginController;
 use Yii;
 
 class HomeController extends NeedLoginController
@@ -22,8 +22,10 @@ class HomeController extends NeedLoginController
 
     public function actionIndex()
     {
-        $model = new GymUser();
-        return $this->render('index', ['model' => $model]);
+        $hasAuthenticated = 0;
+        return $this->render('index', [
+            'hasAuthenticated' => $hasAuthenticated,
+        ]);
     }
     public function actionGymlist() {
         $model = new GymUser();

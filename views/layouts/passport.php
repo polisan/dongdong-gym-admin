@@ -20,12 +20,7 @@ PassportAsset::register($this);
 
 <?php $this->beginBody() ?>
 <div id="wrapper">
-    <div id="<?php
-    if (isset($this->params['status']['reg']) && $this->params['status']['reg']) {
-        echo "reg-main";
-    }
-    else echo "login-main";
-    ?>">
+    <div id="<?php echo Yii::$app->requestedAction->id == 'signup' ? 'reg-main' : 'login-main'; ?>">
         <div class="navarea">
             <div class="container">
                 <div class="navbar-header">
@@ -33,10 +28,10 @@ PassportAsset::register($this);
                 </div>
                 <div class="navbar-right">
                     <?php
-                    if (isset($this->params['status']['login']) && $this->params['status']['login']) {
+                    if (Yii::$app->requestedAction->id == 'login') {
                         echo '现在还不是动动会员？<a class="link" href="'.Url::to(['passport/signup']).'">立即申请</a>';
                     }
-                    else if (isset($this->params['status']['reg']) && $this->params['status']['reg']) {
+                    else if (Yii::$app->requestedAction->id == 'signup') {
                         echo '已有动动场馆账号？<a class="link" href="'.Url::to(['passport/login']).'">立即登录</a>';
                     }
                     ?>

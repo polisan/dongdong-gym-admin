@@ -1,6 +1,4 @@
 <?php
-Yii::setAlias('base', dirname(__DIR__). '/base' );
-
 $params = require(__DIR__ . '/params.php');
 
 $config = [

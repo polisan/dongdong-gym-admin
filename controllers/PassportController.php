@@ -18,12 +18,17 @@ class PassportController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['logout', 'signup'],
                 'rules' => [
                     [
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
+                    ],
+                    [
+                        'actions' => ['signup'],
+                        'allow' => true,
+                        'roles' => ['?'],
                     ],
                 ],
             ],
@@ -43,7 +48,7 @@ class PassportController extends Controller
                 'class' => 'yii\web\ErrorAction',
             ],
             'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
+                'class' => 'app\components\DDCaptchaAction',
                 'minLength' => 4,
                 'maxLength' => 4,
                 'width' => 75,
