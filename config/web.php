@@ -10,10 +10,10 @@ $config = [
     'sourceLanguage' => 'zh-CN',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'app\controllers',
-    'defaultRoute' => 'home',
+    'defaultRoute' => 'default',
     'layout' => 'main',
     'bootstrap' => ['log'],
-    'homeUrl' => ['home/index'],
+    'homeUrl' => ['default/index'],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -27,7 +27,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'passport/error',
+            'errorAction' => 'passport/account/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -49,6 +49,14 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+        ],
+    ],
+    'modules' => [
+        'gym' => [
+            'class' => 'app\modules\gym\Module',
+        ],
+        'passport' => [
+            'class' => 'app\modules\passport\Module',
         ],
     ],
     'params' => $params,

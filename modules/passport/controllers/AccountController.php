@@ -1,15 +1,15 @@
 <?php
 
-namespace app\controllers;
+namespace app\modules\passport\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\SignupForm;
+use app\modules\passport\models\LoginForm;
+use app\modules\passport\models\SignupForm;
 
-class PassportController extends Controller
+class AccountController extends Controller
 {
     public $layout = 'passport';
 
@@ -79,7 +79,6 @@ class PassportController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
-//                    return $this->redirect(['passport/signup-verify-email', 'email' => $user->email]);
                     return $this->goHome();
                 }
             }

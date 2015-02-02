@@ -203,9 +203,6 @@ ul.menu > li {
     margin: 2px 7px;
     padding: 2px;
 }
-.main-gym .profile-gym + .profile-gym {
-    display: none;
-}
 
 .main-gym .logo-gym {
     float: left;

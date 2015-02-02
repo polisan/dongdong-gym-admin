@@ -7,7 +7,7 @@
  * Description: 
  *****************************************************************/
 
-namespace app\models;
+namespace app\modules\gym\models;
 
 
 use yii\base\Model;

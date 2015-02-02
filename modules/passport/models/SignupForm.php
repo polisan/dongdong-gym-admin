@@ -1,7 +1,8 @@
 <?php
 
-namespace app\models;
+namespace app\modules\passport\models;
 
+use app\models\GymAdmin;
 use yii\base\Model;
 
 class SignupForm extends Model
@@ -32,7 +33,7 @@ class SignupForm extends Model
             ['passwordRepeat', 'required', 'message' => '请再次确认密码'],
             ['passwordRepeat', 'compare', 'compareAttribute' => 'password', 'message' => '密码不一致'],
 
-            ['verifyCode', 'required', 'message' => '请填写验证码'],
+            ['verifyCode', 'captcha', 'captchaAction' => 'passport/account/captcha'],
 
             ['isAgree', 'required', 'requiredValue' => true, 'message' => '请确认是否同意该协议'],
         ];
