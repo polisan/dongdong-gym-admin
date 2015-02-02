@@ -2,11 +2,10 @@
 
 namespace app\controllers;
 
-use app\models\GymUser;
 use app\components\NeedLoginController;
 use Yii;
 
-class HomeController extends NeedLoginController
+class DefaultController extends NeedLoginController
 {
     public function behaviors()
     {
@@ -22,9 +21,6 @@ class HomeController extends NeedLoginController
 
     public function actionIndex()
     {
-        $hasAuthenticated = 0;
-        return $this->render('index', [
-            'hasAuthenticated' => $hasAuthenticated,
-        ]);
+        return $this->render('index');
     }
 }

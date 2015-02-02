@@ -29,10 +29,10 @@ PassportAsset::register($this);
                 <div class="navbar-right">
                     <?php
                     if (Yii::$app->requestedAction->id == 'login') {
-                        echo '现在还不是动动会员？<a class="link" href="'.Url::to(['passport/signup']).'">立即申请</a>';
+                        echo '现在还不是动动会员？<a class="link" href="'.Url::to(['account/signup']).'">立即申请</a>';
                     }
                     else if (Yii::$app->requestedAction->id == 'signup') {
-                        echo '已有动动场馆账号？<a class="link" href="'.Url::to(['passport/login']).'">立即登录</a>';
+                        echo '已有动动场馆账号？<a class="link" href="'.Url::to(['account/login']).'">立即登录</a>';
                     }
                     ?>
                 </div>

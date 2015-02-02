@@ -37,7 +37,7 @@ MainAsset::register($this);
                     <?= Html::a(Yii::$app->user->identity->username, ['#'], ['class' => 'nick-name']) ?>
                 </div>
                 <div class="account-meta account-logout">
-                    <?= Html::a('退出', ['passport/logout'], ['id' => 'logout', 'data-method' => 'post']) ?>
+                    <?= Html::a('退出', ['passport/account/logout'], ['id' => 'logout', 'data-method' => 'post']) ?>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@ MainAsset::register($this);
             'items' => [
                 [
                     'label' => '场馆主页',
-                    'url' => ['home/index'],
+                    'url' => ['default/index'],
                     'options' => ['class' => 'active active-item'],
                 ],
                 [

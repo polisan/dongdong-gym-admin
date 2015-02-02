@@ -1,7 +1,8 @@
 <?php
 
-namespace app\models;
+namespace app\modules\passport\models;
 
+use app\models\GymAdmin;
 use Yii;
 use yii\base\Model;
 
@@ -25,8 +26,12 @@ class LoginForm extends Model
     {
         return [
             [['username', 'password'], 'required'],
+
             ['rememberMe', 'boolean'],
+
             ['password', 'validatePassword'],
+
+            ['verifyCode', 'captcha', 'captchaAction' => 'passport/account/captcha'],
         ];
     }
 
