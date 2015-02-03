@@ -47,13 +47,6 @@ class AccountController extends Controller
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
-            'captcha' => [
-                'class' => 'app\components\DDCaptchaAction',
-                'minLength' => 4,
-                'maxLength' => 4,
-                'width' => 75,
-                'height' => 35,
-            ],
         ];
     }
 
@@ -107,5 +100,17 @@ class AccountController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionProfile()
+    {
+        $this->layout = 'main';
+        return $this->render('profile');
+    }
+
+    public function actionPrivacy()
+    {
+        $this->layout = 'main';
+        return $this->render('privacy');
     }
 }

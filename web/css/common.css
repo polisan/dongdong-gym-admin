@@ -75,3 +75,57 @@ input.verify-code{
     width:40%;
     margin-right:10px;
 }
+
+/* the style of main content area  */
+.content-box {
+    width: 100%;
+    padding: 5px;
+
+    -webkit-box-shadow: 1px 1px 1px 1px #3298bd;
+    -moz-box-shadow: 1px 1px 1px 1px #3298bd;
+    box-shadow: 1px 1px 1px 1px #3298bd;;
+}
+.content-box > h3 {
+    margin: 2px 7px;
+    padding: 8px;
+    border-bottom: 1px solid #c0cc7c;
+}
+
+.content-box .mc {
+    margin: 2px 7px;
+}
+
+.content-box .mc .mc-body {
+    padding: 20px 20px 30px 20px;
+    /*border: 1px solid #f89406;*/
+}
+.mc .mc-body > dl {
+    margin: 0 10px;
+}
+.mc .mc-body > dl > dd {
+    display: block;
+    padding: 5px 0;
+    border-bottom: 1px solid #00aa00;
+}
+.mc .mc-body > dl > dd:after {
+    clear:both;
+}
+.mc-body > dl > dd span {
+    display: inline-block;
+    font-size: 1.0em;
+}
+.mc-body > dl .item-label {
+    width: 15%;
+    margin: 0 10px;
+    padding: 10px;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.mc-body > dl .item-info {
+    width: 50%;
+    margin-left: 30px;
+}
+.mc-body > dl .item-op {
+    width: 10%;
+    text-align: right;
+}

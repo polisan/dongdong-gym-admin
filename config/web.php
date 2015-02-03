@@ -13,7 +13,7 @@ $config = [
     'defaultRoute' => 'default',
     'layout' => 'main',
     'bootstrap' => ['log'],
-    'homeUrl' => ['default/index'],
+    'homeUrl' => ['/'],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation

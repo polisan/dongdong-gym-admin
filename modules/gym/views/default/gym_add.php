@@ -3,20 +3,18 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 use yii\bootstrap\Button;
 
-
 $this->title = "查看场馆";
-
 ?>
 <div class="container">
     <div class="col-menu">
         <div class="menu-box-home">
             <span class="menu-box-title"> </span>
             <ul class="menu">
-                <li><?= Html::a("查看场馆", ['gym/default']); ?></li>
-                <li><?= Html::a("场地管理", ['gym/fields']); ?></li>
-                <li><?= Html::a("教练管理", ['gym/coaches']); ?></li>
-                <li><?= Html::a("课程管理", ['gym/courses']); ?></li>
-                <li><?= Html::a("会员卡管理", ['gym/members']); ?></li>
+                <li><?= Html::a("查看场馆", ['/']); ?></li>
+                <li><?= Html::a("场地管理", ['/gym/fields']); ?></li>
+                <li><?= Html::a("教练管理", ['/gym/coaches']); ?></li>
+                <li><?= Html::a("课程管理", ['/gym/courses']); ?></li>
+                <li><?= Html::a("会员卡管理", ['/gym/members']); ?></li>
             </ul>
         </div>
     </div>

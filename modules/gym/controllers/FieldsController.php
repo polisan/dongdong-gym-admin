@@ -13,7 +13,7 @@ class FieldsController extends Controller
     // 详见field*表
     public function actionIndex()
     {
-
+        return $this->render('index');
     }
 
     public function actionEdit()

@@ -34,7 +34,7 @@ MainAsset::register($this);
                     }
                     else echo '<span class="authentic authentic-fail"><a href="">未认证</a></span>';
                     ?>
-<!--                    --><?//= Html::a(Yii::$app->user->identity->username, ['#'], ['class' => 'nick-name']) ?>
+                    <?= Html::a(Yii::$app->user->identity->username, ['#'], ['class' => 'nick-name']) ?>
                 </div>
                 <div class="account-meta account-logout">
                     <?= Html::a('退出', ['passport/account/logout'], ['id' => 'logout', 'data-method' => 'post']) ?>
@@ -48,7 +48,7 @@ MainAsset::register($this);
             'items' => [
                 [
                     'label' => '场馆主页',
-                    'url' => ['default/index'],
+                    'url' => ['/'],
                     'options' => ['class' => 'active active-item'],
                 ],
                 [
@@ -65,7 +65,7 @@ MainAsset::register($this);
                 ],
                 [
                     'label' => '账号管理',
-                    'url' => ['gym/home'],
+                    'url' => ['/passport/account/profile'],
                 ],
             ],
             'options' => ['class' => 'nav-pills nav-justified nav-gym']

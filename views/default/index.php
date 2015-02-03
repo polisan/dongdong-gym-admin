@@ -2,20 +2,16 @@
 use yii\helpers\Html;
 
 $this->title = "场馆主页";
-$this->params['account'] = $model->getAccount();   // 场馆账号信息（模拟）
-$this->params['gym'] = $model->getGymInfo();      // 场馆信息（模拟）
 ?>
 <div class="homepage-main">
     <div class="container">
-        <div class="col-menu">
-            <?php require("menu-nav-gym.php") ?>
-        </div>
         <div class="col-main">
+            <?= Html::a('增加场馆', ['gym/default/add']); ?>
             <div class="list-gym">
                 <div class="list-gym-item">
                     <span class="logo-gym"></span>
                     <div class="gym-info">
-                        <span class="gym-name">杭州体育馆</span>
+                        <span class="gym-name"> <?= Html::a('杭州体育馆', ['gym/default']); ?> </span>
                         <span class="gym-district">杭州西湖区</span>
                         <span class="gym-authentic">未认证</span>
                         <ul class="gym-sports">

@@ -33,7 +33,7 @@ class SignupForm extends Model
             ['passwordRepeat', 'required', 'message' => '请再次确认密码'],
             ['passwordRepeat', 'compare', 'compareAttribute' => 'password', 'message' => '密码不一致'],
 
-            ['verifyCode', 'captcha', 'captchaAction' => 'passport/account/captcha'],
+            ['verifyCode', 'captcha', 'captchaAction' => '/support/captcha'],
 
             ['isAgree', 'required', 'requiredValue' => true, 'message' => '请确认是否同意该协议'],
         ];
