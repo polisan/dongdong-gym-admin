@@ -32,7 +32,7 @@ $this->title = '登录';
                     ['template' => '{input}{image}'.Html::tag('a', '换一张' , ['id' => 'link-captcha-change']),
                         'options' => [ 'class' => 'form-control' ,'style' => 'display: inline-block; width:40%;margin-right:10px;'],
                         'imageOptions' => ['id' => 'captcha-img' ,'alt' => '验证码'],
-                        'captchaAction' => 'account/captcha']);
+                        'captchaAction' => '/support/captcha']);
             ?>
 
             <?= $form->field($model, 'rememberMe', [

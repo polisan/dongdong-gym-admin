@@ -47,13 +47,6 @@ class AccountController extends Controller
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
-            'captcha' => [
-                'class' => 'app\components\DDCaptchaAction',
-                'minLength' => 4,
-                'maxLength' => 4,
-                'width' => 75,
-                'height' => 35,
-            ],
         ];
     }
 

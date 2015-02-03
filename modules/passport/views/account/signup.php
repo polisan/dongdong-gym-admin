@@ -36,7 +36,7 @@ $this->title = '注册';
                 ['template' => '{input}{image}'.Html::tag('a', '换一张' , ['id' => 'link-captcha-change']),
                     'options' => [ 'class' => 'form-control verify-code'],
                     'imageOptions' => ['id' => 'captcha-img', 'alt' => '验证码'],
-                    'captchaAction' => 'account/captcha'])
+                    'captchaAction' => '/support/captcha'])
             ?>
 
             <?= $form->field($model, 'isAgree')

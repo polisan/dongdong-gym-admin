@@ -31,7 +31,7 @@ class LoginForm extends Model
 
             ['password', 'validatePassword'],
 
-            ['verifyCode', 'captcha', 'captchaAction' => 'passport/account/captcha'],
+            ['verifyCode', 'captcha', 'captchaAction' => '/support/captcha'],
         ];
     }
 
