@@ -23,12 +23,4 @@ class DefaultController extends NeedLoginController
     {
         return $this->render('index');
     }
-    public function actionGymlist() {
-        $model = new GymUser();
-        return $this->render('gym_list', ['model' => $model]);
-    }
-    public function actionGymadd() {
-        $model = new GymUser();
-        return $this->render('gym_add', ['model' => $model]);
-    }
 }

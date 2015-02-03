@@ -284,3 +284,8 @@ ul.menu > li {
     float: right;
 }
 #outer:after{ content:"."; height:0; visibility:hidden; display:block; clear:both; }
+
+.clockpicker {
+    display: inline-block;
+    width: 45%;
+}

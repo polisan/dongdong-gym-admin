@@ -21,24 +21,23 @@ class DefaultController extends Controller
         return $this->render('index', ['model' => $model]);
     }
 
-    public function actionAdd() {
-        $model = new Gymuser();
-        $this->layout = "main";
-        return $this->render('gym_add', ['model' => $model]);
-    }
-
     /** TODO: 编辑场馆信息
      * 编辑上述场馆基本信息
      **/
     public function actionEdit()
     {
-
+        $model = new Gymuser();
+        $this->layout = "main";
+        return $this->render('gym_edit', ['model' => $model]);
     }
 
     // TODO: 新添场馆
     // 表单包含上述场馆基本信息
     public function actionAdd()
     {
+        $model = new Gymuser();
+        $this->layout = "main";
+        return $this->render('gym_add', ['model' => $model]);
 
     }
 

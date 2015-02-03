@@ -11,8 +11,11 @@ class MainAsset extends AssetBundle
     public $css = [
         'css/common.css',
         'css/main.css',
+        'plugins/clockpicker/bootstrap-clockpicker.css',
     ];
     public $js = [
+        'js/main.js',
+        'plugins/clockpicker/bootstrap-clockpicker.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
