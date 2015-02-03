@@ -101,4 +101,16 @@ class AccountController extends Controller
 
         return $this->goHome();
     }
+
+    public function actionProfile()
+    {
+        $this->layout = 'main';
+        return $this->render('profile');
+    }
+
+    public function actionPrivacy()
+    {
+        $this->layout = 'main';
+        return $this->render('privacy');
+    }
 }

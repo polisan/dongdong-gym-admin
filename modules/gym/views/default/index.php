@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 
 $this->title = "查看场馆";
-$gym = $model->getGymInfo()[0];    // 场馆信息（模拟）
+$gym = $model->gym;    // 场馆信息（模拟）
 ?>
 
 <div class="homepage-main">
@@ -11,11 +11,11 @@ $gym = $model->getGymInfo()[0];    // 场馆信息（模拟）
             <div class="menu-box-home">
                 <span class="menu-box-title"> </span>
                 <ul class="menu">
-                    <li><?= Html::a("查看场馆", ['gym/default']); ?></li>
-                    <li><?= Html::a("场地管理", ['gym/fields']); ?></li>
-                    <li><?= Html::a("教练管理", ['gym/coaches']); ?></li>
-                    <li><?= Html::a("课程管理", ['gym/courses']); ?></li>
-                    <li><?= Html::a("会员卡管理", ['gym/members']); ?></li>
+                    <li><?= Html::a("查看场馆", ['/']); ?></li>
+                    <li><?= Html::a("场地管理", ['/gym/fields']); ?></li>
+                    <li><?= Html::a("教练管理", ['/gym/coaches']); ?></li>
+                    <li><?= Html::a("课程管理", ['/gym/courses']); ?></li>
+                    <li><?= Html::a("会员卡管理", ['/gym/members']); ?></li>
                 </ul>
             </div>
         </div>
@@ -25,7 +25,7 @@ $gym = $model->getGymInfo()[0];    // 场馆信息（模拟）
                     <h3>场馆信息</h3>
                     <div class="profile-gym">
                         <?= Html::a('<img src="../../dongdong/images/gym-logo.jpg"', ['home/gymCamera'], ['class' => 'logo-gym'] ) ?>
-                        <div class="btn-venuse-setting"><?= Html::a('编辑', ['home/gymedit', 'op'=> 'edit']) ?></div>
+                        <div class="btn-venuse-setting"><?= Html::a('编辑', ['edit', 'op'=> 'edit']) ?></div>
                         <div class="simple-info">
                             <h3 class="name"> <?= $gym['name']; ?>【<strong class="status">营业中</strong>】</h3>
                             <ul>

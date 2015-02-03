@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\bootstrap\Button;
 
 $this->title = "查看场馆";
+
 ?>
 <div class="container">
     <div class="col-menu">
@@ -84,12 +85,12 @@ $this->title = "查看场馆";
             <?php
             $allSports = $model->getAllSports();
             echo $form->field($model, 'sports')->label('营业项目')->hint('最多选择3个')
-                      ->inline()
-                      ->checkboxList($allSports, [
-                            'template'    => '<div class="col-md-2">{label}</div><div class="col-md-9">{input}{hint}</div><div>{error}</div>',
-                            'itemOptions' => ['labelOptions'=> ['class' => 'sports-checkboxlist-inline'] ],
-                            'encode'      => true,
-                    ]);
+                ->inline()
+                ->checkboxList($allSports, [
+                    'template'    => '<div class="col-md-2">{label}</div><div class="col-md-9">{input}{hint}</div><div>{error}</div>',
+                    'itemOptions' => ['labelOptions'=> ['class' => 'sports-checkboxlist-inline'] ],
+                    'encode'      => true,
+                ]);
 
             echo $form->field($model, 'wechat')->label('微信公共号');
 
