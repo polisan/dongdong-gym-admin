@@ -48,7 +48,7 @@ MainAsset::register($this);
             'items' => [
                 [
                     'label' => '场馆主页',
-                    'url' => ['default/index'],
+                    'url' => ['/'],
                     'options' => ['class' => 'active active-item'],
                 ],
                 [
