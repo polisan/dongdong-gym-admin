@@ -188,4 +188,9 @@ class GymAdmin extends ActiveRecord implements IdentityInterface
                     'or', ['email' => $loginName], ['phone' => $loginName]]]])
             ->one();
     }
+
+    public static function getGyms()
+    {
+
+    }
 }
