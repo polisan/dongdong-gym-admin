@@ -2,14 +2,9 @@
 use yii\helpers\Html;
 
 $this->title = "场馆主页";
-$this->params['account'] = $model->getAccount();   // 场馆账号信息（模拟）
-$this->params['gym'] = $model->getGymInfo();      // 场馆信息（模拟）
 ?>
 <div class="homepage-main">
     <div class="container">
-        <div class="col-menu">
-            <?php require("menu-nav-gym.php") ?>
-        </div>
         <div class="col-main">
             <div class="list-gym">
                 <div class="list-gym-item">
