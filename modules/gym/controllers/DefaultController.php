@@ -2,6 +2,7 @@
 
 namespace app\modules\gym\controllers;
 
+use app\modules\gym\models\GymUser;
 use yii\web\Controller;
 
 class DefaultController extends Controller
@@ -15,6 +16,9 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
+        $model = new GymUser();
+        $this->layout = "main";
+        return $this->render('index', ['model' => $model]);
     }
 
     /** TODO: 编辑场馆信息
@@ -29,7 +33,9 @@ class DefaultController extends Controller
     // 表单包含上述场馆基本信息
     public function actionAdd()
     {
-
+        $model = new Gymuser();
+        $this->layout = "main";
+        return $this->render('gym_add', ['model' => $model]);
     }
 
     public function actionDelete()
