@@ -104,13 +104,13 @@ class AccountController extends Controller
 
     public function actionProfile()
     {
-        $this->layout = 'main';
+        $this->layout = '/main';
         return $this->render('profile');
     }
 
     public function actionPrivacy()
     {
-        $this->layout = 'main';
+        $this->layout = '/main';
         return $this->render('privacy');
     }
 }

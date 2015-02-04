@@ -1,6 +1,5 @@
 <?php
 
-
 use yii\base\Model;
 
 class Field extends Model {

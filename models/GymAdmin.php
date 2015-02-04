@@ -178,7 +178,7 @@ class GymAdmin extends ActiveRecord implements IdentityInterface
 
     public static function findByUsernameOrEmailOrPhone($loginName)
     {
-        if (!$loginName) {
+        if (empty($loginName)) {
             return null;
         }
 
@@ -189,8 +189,10 @@ class GymAdmin extends ActiveRecord implements IdentityInterface
             ->one();
     }
 
-    public static function getGyms()
+    public function getGyms()
     {
-
+        return $this->hasMany(Gym::className(), ['gym_admin_id' => 'id'])
+            ->where(['not', ['status' => Gym::STATUS_DELETED]])
+            ->orderBy('id');
     }
 }
