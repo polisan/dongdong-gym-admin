@@ -6,8 +6,6 @@ use yii\web\Controller;
 
 class DefaultController extends Controller
 {
-    public $layout = "main";
-
     /** TODO: 查看场馆信息
      * 1、基本信息：包括名字，Logo，营业时间，联系方式，地区，详细地址，
      * 微信公共账号，是否支持会员，是否认证，经营体育项目，

@@ -27,7 +27,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'passport/account/error',
+            'errorAction' => '/passport/account/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
