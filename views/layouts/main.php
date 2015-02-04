@@ -44,31 +44,31 @@ MainAsset::register($this);
     </div>
     <div class="container">
         <?php
+        $curModule = Yii::$app->controller->module->id;
+        $curRoute = '';
+        if ($curModule == 'new')
+            $curRoute = 'news/default';
+        else if ($curModule == 'activity')
+            $curRoute = 'activity/default';
+        else if ($curModule == 'message')
+            $curRoute = 'message/default';
+        else if ($curModule == 'passport')
+            $curRoute = 'passport/account/profile';
+        else $curModule = '/';
+
+        ?>
+        <?php
+        $menuItems = [
+            ['label' => '场馆主页', 'url' => ['/']],
+            ['label' => '资讯管理', 'url' => ['/news/default']],
+            ['label' => '活动管理', 'url' => ['/activity/default']],
+            ['label' => '消息中心', 'url' => ['/message/default']],
+            ['label' => '账号管理', 'url' => ['/passport/account/profile']],
+        ];
         echo Nav::widget([
-            'items' => [
-                [
-                    'label' => '场馆主页',
-                    'url' => ['/'],
-                    'options' => ['class' => 'active active-item'],
-                ],
-                [
-                    'label' => '资讯管理',
-                    'url' => ['gym/home'],
-                ],
-                [
-                    'label' => '活动管理',
-                    'url' => ['gym/home'],
-                ],
-                [
-                    'label' => '消息中心',
-                    'url' => ['gym/home'],
-                ],
-                [
-                    'label' => '账号管理',
-                    'url' => ['/passport/account/profile'],
-                ],
-            ],
-            'options' => ['class' => 'nav-pills nav-justified nav-gym']
+            'options' => ['class' => 'nav nav-pills nav-justified navbar-main'],
+            'items' => $menuItems,
+            'route' => $curRoute,
         ]);
         ?>
     </div>
