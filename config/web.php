@@ -52,6 +52,9 @@ $config = [
         ],
     ],
     'modules' => [
+        'address' => [
+            'class' => 'app\modules\address\Module',
+        ],
         'gym' => [
             'class' => 'app\modules\gym\Module',
         ],

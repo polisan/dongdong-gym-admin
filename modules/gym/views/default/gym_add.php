@@ -14,7 +14,7 @@ $this->title = "查看场馆";
                 <li><?= Html::a("场地管理", ['/gym/fields']); ?></li>
                 <li><?= Html::a("教练管理", ['/gym/coaches']); ?></li>
                 <li><?= Html::a("课程管理", ['/gym/courses']); ?></li>
-                <li><?= Html::a("会员卡管理", ['/gym/members']); ?></li>
+                <li><?= Html::a("会员卡管理", ['/gym/membercards']); ?></li>
             </ul>
         </div>
     </div>
@@ -58,21 +58,13 @@ $this->title = "查看场馆";
                 </div>
                 <div class="col-md-9">
                     <?php
-                    $provinces = [
-                        'Beijing' => '北京',
-                        'Shanghai' => '上海',
-                        'Tianjin' => '天津',
-                        'Zhejiang' => '浙江',
-                    ];
-                    echo Html::dropDownList('province', 'Zhejiang', $provinces);
+                    echo Html::dropDownList('province', $defaultProvinceId, $provinces);
                     echo "&nbsp;";
 
-                    $citys = array(0 => '请选择城市');
-                    echo Html::dropDownList('city', 0, $citys);
+                    echo Html::dropDownList('city', 0, $cities);
                     echo "&nbsp;";
 
-                    $districts = array(0 => '请选择区域');
-                    echo Html::dropDownList('district', 0, $districts);
+                    echo Html::dropDownList('county', 0, ['请选择区域']);
                     ?>
                     <p></p>
                     <div class="">

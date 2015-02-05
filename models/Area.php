@@ -56,8 +56,8 @@ class Area extends ActiveRecord
         return static::findAll(['level' => self::LEVEL_CITY]);
     }
 
-    public static function findCitiesByProvinceId($provinceId)
+    public static function findByParent($parent)
     {
-        return static::findAll(['parent' => $provinceId]);
+        return static::findAll(['parent' => $parent]);
     }
 }

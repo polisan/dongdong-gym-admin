@@ -16,6 +16,31 @@ $(function() {
         $('#btn-nickname-change').hide();
         $('#nickname').text($('#nickname-edit').val());
     });
+
+    $('select[name="province"]').change(function() {
+        var t = this;
+        $.ajax({
+            url: '/dongdong/gym-admin/address/ajax/cities',
+            async: false,
+            type: 'POST',
+            data: {province:$(t).val()},
+            success: function(result) {
+                $(t).nextAll('select[name="city"]').html(result);
+            }
+        });
+    });
+    $('select[name="city"]').change(function() {
+        var t = this;
+        $.ajax({
+            url: '/dongdong/gym-admin/address/ajax/counties',
+            async: false,
+            type: 'POST',
+            data: {city:$(t).val()},
+            success: function(result) {
+                $(t).nextAll('select[name="county"]').html(result);
+            }
+        });
+    });
 });
 
 function ajaxFileUpload()

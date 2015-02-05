@@ -20,7 +20,7 @@ $this->title = '安全设置';
         </div>
         <div class="col-main">
             <div class="content-box">
-                <h3>安全管理</h3>
+                <h3>安全设置</h3>
                 <div class="mc">
                     <div class="mc-body">
                         <div class="account">

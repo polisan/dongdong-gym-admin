@@ -2,6 +2,7 @@
 
 namespace app\modules\gym\controllers;
 
+use app\models\Area;
 use yii\web\Controller;
 
 class DefaultController extends Controller
@@ -33,7 +34,24 @@ class DefaultController extends Controller
     public function actionAdd()
     {
         $model = new Gymuser();
-        return $this->render('gym_add', ['model' => $model]);
+
+        $provinces = Area::findProvinces();
+        foreach ($provinces as $province) {
+            $provinceNames[$province['id']] = $province['name'];
+        }
+        $defaultProvinceId = 15; // Zhejiang
+        $cities = Area::findByParent($defaultProvinceId);
+        $cityNames[0] = '请选择城市';
+        foreach ($cities as $city) {
+            $cityNames[$city['id']] = $city['name'];
+        }
+
+        return $this->render('gym_add', [
+            'model' => $model,
+            'provinces' => $provinceNames,
+            'cities' => $cityNames,
+            'defaultProvinceId' => $defaultProvinceId,
+        ]);
     }
 
     public function actionDelete()
