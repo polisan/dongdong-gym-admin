@@ -51,7 +51,7 @@ $this->title = '隐私设置';
                     $watermark = array(
                         'no_watermark' => '不使用水印',
                         'gym_name' => '场馆名称',
-                        'account_name' => '用户昵称',
+                        'account_name' => '用户名',
                     );
 
                     ?>

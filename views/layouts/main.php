@@ -53,7 +53,7 @@ MainAsset::register($this);
         else if ($curModule == 'message')
             $curRoute = 'message/default';
         else if ($curModule == 'passport')
-            $curRoute = 'passport/account/profile';
+            $curRoute = '/passport/account/profile';
         else $curModule = '/';
 
         ?>
@@ -63,7 +63,7 @@ MainAsset::register($this);
             ['label' => '资讯管理', 'url' => ['/news/default']],
             ['label' => '活动管理', 'url' => ['/activity/default']],
             ['label' => '消息中心', 'url' => ['/message/default']],
-            ['label' => '账号管理', 'url' => ['/passport/account/profile']],
+            ['label' => '账号管理', 'url' => ['/my/account/profile']],
         ];
         echo Nav::widget([
             'options' => ['class' => 'nav nav-pills nav-justified navbar-main'],

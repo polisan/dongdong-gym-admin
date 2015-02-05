@@ -11,7 +11,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'app\controllers',
     'defaultRoute' => 'default',
-    'layout' => 'main',
+    'layout' => '/main',
     'bootstrap' => ['log'],
     'homeUrl' => ['/'],
     'components' => [
@@ -27,7 +27,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => '/passport/account/error',
+            'errorAction' => '/support/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -54,6 +54,9 @@ $config = [
     'modules' => [
         'gym' => [
             'class' => 'app\modules\gym\Module',
+        ],
+        'my' => [
+            'class' => 'app\modules\my\Module',
         ],
         'passport' => [
             'class' => 'app\modules\passport\Module',

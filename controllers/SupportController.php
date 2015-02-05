@@ -23,6 +23,9 @@ class SupportController extends Controller
                 'width' => 75,
                 'height' => 35,
             ],
+            'error' => [
+                'class' => 'app\components\DDErrorAction',
+            ],
         ];
     }
 }

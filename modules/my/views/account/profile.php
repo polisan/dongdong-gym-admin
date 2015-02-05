@@ -26,7 +26,7 @@ $this->title = '账号设置';
                         'items' => [
                             [
                                 'label' => '账号详情',
-                                'url' => ['#'],
+                                'url' => ['profile'],
                                 'options' => ['class' => 'active '],
                             ],
                             [
@@ -50,19 +50,19 @@ $this->title = '账号设置';
                                 </span>
                             </dd>
                             <dd class="mc-item">
-                                <span class="item-label">昵称</span>
-                                <span class="item-info" id="nickname">热力</span>
+                                <span class="item-label">用户名</span>
+                                <span class="item-info" id="nickname"><?= Yii::$app->user->identity->username ?></span>
                                 <input class="item-info text" id="nickname-edit" value="热力" style="display:none;" />
-                                <span class="item-op"><?= Html::button('更改昵称', ['id' => 'btn-nickname-edit']) ?></span>
+                                <span class="item-op"><?= Html::button('更改用户名', ['id' => 'btn-nickname-edit']) ?></span>
                                 <span class="item-op"><?= Html::button('确认更改', ['id' => 'btn-nickname-change', 'style' => 'display:none;']) ?></span>
                             </dd>
                             <dd class="mc-item">
                                 <span class="item-label">登录邮箱</span>
                                 <?php if (1) {
                                     ?>
-                                    <span class="item-info">fir***@163.com</span>
+                                    <span class="item-info"><?= Yii::$app->user->identity->email ?></span>
                                     <span class="item-op"><?= Html::a('更换邮箱', ['updateMail']) ?></span>
-                                <?php }else { ?>
+                                <?php } else { ?>
                                     <span class="item-info">你还未绑定邮箱</span>
                                     <span class="item-op"><?= Html::a('绑定邮箱', ['bindmail']) ?></span>
                                 <?php } ?>

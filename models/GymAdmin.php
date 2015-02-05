@@ -176,6 +176,16 @@ class GymAdmin extends ActiveRecord implements IdentityInterface
         $this->access_token_expire_at = time() + $this->access_token_during;
     }
 
+    public static function findByEmail($email)
+    {
+        return static::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
+    }
+
+    public static function findByPhone($phone)
+    {
+        return static::findOne(['phone' => $phone, 'status' => self::STATUS_ACTIVE]);
+    }
+
     public static function findByUsernameOrEmailOrPhone($loginName)
     {
         if (empty($loginName)) {
