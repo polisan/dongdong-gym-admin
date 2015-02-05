@@ -129,3 +129,24 @@ input.verify-code{
     width: 10%;
     text-align: right;
 }
+.mc-body .account .portrait {
+    display: inline-block;
+    width:  80px;
+    height: 80px;
+}
+.mc-body .account .account-info{
+    position: relative;
+    margin:0 7px;
+    min-width: 50px;
+    min-height: 80px;
+}
+.mc-body .account .account-info .nick-name {
+    display: block;
+    margin: 2px 0;
+    padding-bottom: 5px;
+    top: 2px;
+}
+.account-info .history-login {
+    margin-top: 10px;
+    padding-bottom: 5px;
+}

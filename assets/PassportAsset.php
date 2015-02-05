@@ -10,6 +10,7 @@ class PassportAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/common.css',
+        'css/main.css',
         'css/passport.css',
     ];
     public $js = [

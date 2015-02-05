@@ -12,10 +12,13 @@ class MainAsset extends AssetBundle
         'css/common.css',
         'css/main.css',
         'plugins/clockpicker/bootstrap-clockpicker.css',
+        'plugins/jcrop/jquery.Jcrop.css',
     ];
     public $js = [
         'js/main.js',
         'plugins/clockpicker/bootstrap-clockpicker.js',
+        'plugins/jcrop/jquery.Jcrop.js',
+        'plugins/ajaxFileUploader/ajaxfileupload.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

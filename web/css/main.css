@@ -11,7 +11,6 @@
 }
 
 .account {
-    float: right !important;
     padding-top: 15px;
     margin-right: 20px;
 }
@@ -52,7 +51,7 @@
     border-left: 1px solid #e7e7eb;
 }
 
-.nav-gym {
+.navbar-main {
     margin: 0 10px;
     width: 100%;
     height:auto;
@@ -63,14 +62,14 @@
     color:#333;
     font-size: 1.5em;
 }
-.nav-gym > li > a {
+.navbar-main > li > a {
     border-radius: 0;
 }
 
-.nav-gym > li.active-item > a {
+.navbar-main > li.active > a {
     background-color: #46EFAF;
 }
-.nav-gym > li.active-item > a:hover {
+.navbar-main > li.active > a:hover {
     cursor: default;
     background-color: #46EFAF;
 }
@@ -288,4 +287,28 @@ ul.menu > li {
 .clockpicker {
     display: inline-block;
     width: 45%;
+}
+
+.step-update {
+    width: 480px;
+    border-top: 5px solid #ccc;
+    text-align: center;
+    margin: 30px auto;
+}
+.step-update > dl {
+    display: inline-block;
+    width: 150px;
+}
+.step-update > dl.done {
+    color: #0000ff;
+}
+.step-update > dl.doing {
+    color: #0097cf;
+}
+.step-form {
+    width: 480px;
+    margin: 5px auto;
+}
+.attest-info {
+    list-style: none;
 }
