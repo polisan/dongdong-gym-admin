@@ -14,8 +14,6 @@ use yii\db\ActiveRecord;
  * @property string $code
  * @property integer $level
  * @property integer $parent
- * @property integer $created_at
- * @property integer $updated_at
  */
 class Area extends ActiveRecord
 {
@@ -30,16 +28,6 @@ class Area extends ActiveRecord
     public static function tableName()
     {
         return '{{%area}}';
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            TimestampBehavior::className(),
-        ];
     }
 
     /**
