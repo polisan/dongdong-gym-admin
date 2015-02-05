@@ -36,21 +36,14 @@ class DefaultController extends Controller
         $model = new Gymuser();
 
         $provinces = Area::findProvinces();
+        $provinceNames[] = "请选择省份";
         foreach ($provinces as $province) {
             $provinceNames[$province['id']] = $province['name'];
-        }
-        $defaultProvinceId = 15; // Zhejiang
-        $cities = Area::findByParent($defaultProvinceId);
-        $cityNames[0] = '请选择城市';
-        foreach ($cities as $city) {
-            $cityNames[$city['id']] = $city['name'];
         }
 
         return $this->render('gym_add', [
             'model' => $model,
             'provinces' => $provinceNames,
-            'cities' => $cityNames,
-            'defaultProvinceId' => $defaultProvinceId,
         ]);
     }
 

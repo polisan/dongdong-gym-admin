@@ -25,7 +25,13 @@ $(function() {
             type: 'POST',
             data: {province:$(t).val()},
             success: function(result) {
-                $(t).nextAll('select[name="city"]').html(result);
+                $(t).nextAll('select[name="city"]').first().html(
+                    '<option value="0">请选择城市</option>'+
+                    result
+                );
+                $(t).nextAll('select[name="county"]').first().html(
+                    '<option value="0">请选择区域</option>'
+                );
             }
         });
     });
@@ -37,7 +43,10 @@ $(function() {
             type: 'POST',
             data: {city:$(t).val()},
             success: function(result) {
-                $(t).nextAll('select[name="county"]').html(result);
+                $(t).nextAll('select[name="county"]').html(
+                    '<option value="0">请选择区域</option>'+
+                    result
+                );
             }
         });
     });

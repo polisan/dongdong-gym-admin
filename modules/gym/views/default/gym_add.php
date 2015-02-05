@@ -58,10 +58,10 @@ $this->title = "查看场馆";
                 </div>
                 <div class="col-md-9">
                     <?php
-                    echo Html::dropDownList('province', $defaultProvinceId, $provinces);
+                    echo Html::dropDownList('province', 0, $provinces);
                     echo "&nbsp;";
 
-                    echo Html::dropDownList('city', 0, $cities);
+                    echo Html::dropDownList('city', 0, ['请选择城市']);
                     echo "&nbsp;";
 
                     echo Html::dropDownList('county', 0, ['请选择区域']);
