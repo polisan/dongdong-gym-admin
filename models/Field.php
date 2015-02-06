@@ -58,4 +58,5 @@ class Field extends ActiveRecord
     {
         return $this->hasOne(FieldCategory::className(), ['id' => 'category']);
     }
+
 }
