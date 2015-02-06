@@ -1,6 +1,6 @@
 
 $(function() {
-    $('.clockpicker').clockpicker();
+    $(".clockpicker").clockpicker();
     $('#btn-avatar-edit').on('click', ajaxFileUpload);
     $('.js_addfield').on('click', addField);
     $('.js_editfield').on('click', editField);
@@ -29,38 +29,20 @@ $(function() {
 
     });
     $('#btn-nickname-change').on('click', function(){
-        var n = $('#nickname');
-        var ne = $('#nickname-edit');
-        $.ajax({
-            type: 'POST',
-            url: '/dongdong/gym-admin/my/ajax/edit-profile',
-            async: false,
-            data: {username: ne.val()},
-            success: function(result) {
-                if (result == '') {
-                    location.href = '/dongdong/gym-admin';
-                } else if (result == 0) {
-                    $('#btn-nickname-edit').show();
-                    $('#btn-nickname-change').hide();
-                    n.toggle().text(ne.toggle().val());
-                    $('.nick-name').text(ne.val());
-                } else {
-                    alert(result == 204 ? '用户名已被占用' : '位置错误');
-                    $('#btn-nickname-edit').show();
-                    $('#btn-nickname-change').hide();
-                    ne.toggle().val(n.toggle().text());
-                }
-            }
-        });
+        $('#nickname').toggle();
+        $('#nickname-edit').toggle();
+        $('#btn-nickname-edit').show();
+        $('#btn-nickname-change').hide();
+        $('#nickname').text($('#nickname-edit').val());
     });
 
     $('select[name="province"]').change(function() {
         var t = this;
         $.ajax({
-            type: 'POST',
-            url:'/dongdong/gym-admin/address/ajax/cities',
+            url: '/dongdong/gym-admin/address/ajax/cities',
             async: false,
-            data: {province: $(t).val()},
+            type: 'POST',
+            data: {province:$(t).val()},
             success: function(result) {
                 $(t).nextAll('select[name="city"]').first().html(
                     '<option value="0">请选择城市</option>'+

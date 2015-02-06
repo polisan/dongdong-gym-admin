@@ -5,11 +5,6 @@ namespace app\modules\passport\models;
 use app\models\GymAdmin;
 use yii\base\Model;
 
-/**
- * SignupForm is the model behind the signup form.
- *
- * @package app\modules\passport\models
- */
 class SignupForm extends Model
 {
     public $username;
@@ -35,8 +30,8 @@ class SignupForm extends Model
             ['password', 'required', 'message' => '请填写密码'],
             ['password', 'string', 'min' => 6],
 
-            ['passwordRepeat', 'required', 'message' => '请输入确认密码'],
-            ['passwordRepeat', 'compare', 'compareAttribute' => 'password', 'message' => '请再次输入确认密码'],
+            ['passwordRepeat', 'required', 'message' => '请再次确认密码'],
+            ['passwordRepeat', 'compare', 'compareAttribute' => 'password', 'message' => '密码不一致'],
 
             ['verifyCode', 'captcha', 'captchaAction' => '/support/captcha'],
 
@@ -55,6 +50,7 @@ class SignupForm extends Model
             'isAgree' => '是否同意',
         ];
     }
+
 
     public function signup()
     {

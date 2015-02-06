@@ -68,7 +68,7 @@ class AccountController extends Controller
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
-                if (Yii::$app->user->login($user)) {
+                if (Yii::$app->getUser()->login($user)) {
                     return $this->goHome();
                 }
             }
