@@ -54,8 +54,7 @@ $this->title = '安全设置';
                             <li class="safe-item">
                                 <dl>
                                     <dt class="title">密码修改</dt>
-                                    <dd class="detail">上次修改密码的时间: 2014-08-07 18:00</dd>
-                                    <dd class="opr"><?= Html::a('更改', ['updatepassword']) ?></dd>
+                                    <dd class="opr"><?= Html::a('更改', ['/my/account/update-password']) ?></dd>
                                 </dl>
                             </li>
                         </ul>

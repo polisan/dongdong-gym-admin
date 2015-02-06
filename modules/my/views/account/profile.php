@@ -52,7 +52,7 @@ $this->title = '账号设置';
                             <dd class="mc-item">
                                 <span class="item-label">用户名</span>
                                 <span class="item-info" id="nickname"><?= Yii::$app->user->identity->username ?></span>
-                                <input class="item-info text" id="nickname-edit" value="热力" style="display:none;" />
+                                <input class="item-info text" id="nickname-edit" value="<?= Yii::$app->user->identity->username ?>" style="display:none;" />
                                 <span class="item-op"><?= Html::button('更改用户名', ['id' => 'btn-nickname-edit']) ?></span>
                                 <span class="item-op"><?= Html::button('确认更改', ['id' => 'btn-nickname-change', 'style' => 'display:none;']) ?></span>
                             </dd>
@@ -61,24 +61,10 @@ $this->title = '账号设置';
                                 <?php if (1) {
                                     ?>
                                     <span class="item-info"><?= Yii::$app->user->identity->email ?></span>
-                                    <span class="item-op"><?= Html::a('更换邮箱', ['updateMail']) ?></span>
+                                    <span class="item-op"><?= Html::a('更换邮箱', ['/my/account/update-email']) ?></span>
                                 <?php } else { ?>
                                     <span class="item-info">你还未绑定邮箱</span>
                                     <span class="item-op"><?= Html::a('绑定邮箱', ['bindmail']) ?></span>
-                                <?php } ?>
-                            </dd>
-                            <dd class="mc-item">
-                                <span class="item-label">认证信息</span>
-                                <?php
-                                if (1) {
-                                ?>
-                                    <span class="item-info">未认证</span>
-                                    <span class="item-op"><?= Html::a('认证申请', ['accountattest']) ?></span>
-                                <?php
-                                } else {
-                                ?>
-                                    <span class="item-info"><p>陈**</p><p>157***80739</p></span>
-                                    <span class="item-op"><?= Html::a('详情', ['attestdetail']) ?></span>
                                 <?php } ?>
                             </dd>
                         </dl>
