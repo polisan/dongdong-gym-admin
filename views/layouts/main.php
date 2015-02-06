@@ -34,7 +34,7 @@ MainAsset::register($this);
                     }
                     else echo '<span class="authentic authentic-fail"><a href="">未认证</a></span>';
                     ?>
-                    <?= Html::a(Yii::$app->user->identity->username, ['#'], ['class' => 'nick-name']) ?>
+                    <?= Html::a(Yii::$app->user->identity->username, ['/my/account/profile'], ['class' => 'nick-name']) ?>
                 </div>
                 <div class="account-meta account-logout">
                     <?= Html::a('退出', ['/passport/account/logout'], ['id' => 'logout', 'data-method' => 'post']) ?>
