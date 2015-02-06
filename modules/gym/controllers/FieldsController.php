@@ -21,7 +21,10 @@ class FieldsController extends Controller
     }
 
     public function actionEdit()
-    {}
+    {
+        $model = new FieldCategory();
+        return $this->render('fieldcategory_edit', ['model' => $model]);
+    }
 
     public function actionAdd()
     {
