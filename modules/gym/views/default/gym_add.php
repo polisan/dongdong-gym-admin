@@ -3,20 +3,11 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 use yii\bootstrap\Button;
 
-$this->title = "查看场馆";
+$this->title = '新增场馆';
 ?>
 <div class="container">
     <div class="col-menu">
-        <div class="menu-box-home">
-            <span class="menu-box-title"> </span>
-            <ul class="menu">
-                <li><?= Html::a("查看场馆", ['/']); ?></li>
-                <li><?= Html::a("场地管理", ['/gym/fields']); ?></li>
-                <li><?= Html::a("教练管理", ['/gym/coaches']); ?></li>
-                <li><?= Html::a("课程管理", ['/gym/courses']); ?></li>
-                <li><?= Html::a("会员卡管理", ['/gym/membercards']); ?></li>
-            </ul>
-        </div>
+        <?php require(dirname(__DIR__). '/default/nav_menu_sidebar.php'); ?>
     </div>
     <div class="col-main">
         <div class="gym-add-frame">
@@ -92,21 +83,14 @@ $this->title = "查看场馆";
 
             ?>
 
-            <div class="form-group required">
-                <div class="col-md-2">
-                    <label class="control-label PR0">场馆Logo</label>
-                </div>
-                <div class="col-md-2">
-                    <?= Button::widget([
-                        'label' => '上传图片',
-                        'options' => ['class' => 'btn btn-lg icon-btn-upload']
-                    ]) ?>
-                </div>
-                <div class="col-md-7">
-                    <?= Html::img('', ['alt'=> 'logo']) ?>
+            <?= $form->field($model, 'description')->label('场馆介绍')->textarea([ 'rows' => '5', 'cols' => '20' ]); ?>
+
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-9">
+                    <?= Html::submitButton('提交', ['class' => 'btn btn-primary', 'name' => 'submit']) ?>
                 </div>
             </div>
-            <?= $form->field($model, 'description')->label('场馆介绍')->textarea([ 'rows' => '5', 'cols' => '20' ]); ?>
+            <?php $form->end(); ?>
         </div>
     </div>
 </div>

@@ -44,7 +44,7 @@ MainAsset::register($this);
     </div>
     <div class="container">
         <?php
-        $curModule = Yii::$app->controller->module->id;
+        $curModule = Yii::$app->controller->module->getUniqueId();    // get the current module name
         $curRoute = '';
         if ($curModule == 'new')
             $curRoute = 'news/default';
@@ -52,9 +52,8 @@ MainAsset::register($this);
             $curRoute = 'activity/default';
         else if ($curModule == 'message')
             $curRoute = 'message/default';
-        else if ($curModule == 'passport')
-            $curRoute = '/passport/account/profile';
-        else $curModule = '/';
+        else if ($curModule == 'my')
+            $curRoute = 'my/account/profile';
 
         ?>
         <?php

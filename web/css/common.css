@@ -7,7 +7,7 @@ body {
     height: 100%;
     font-family: "Helvetica Neue",Helvetica, Arial, sans-serif;
 }
-ul { margin: 0; padding: 0;}
+ul { margin: 0; padding: 0; list-style: none; }
 img { border: 0; }
 a:hover {
     color: #008000;
@@ -18,6 +18,8 @@ article,aside,dialog,header,section,footer,nav,figure,menu{display:block}
 /* color */
 .red { color: red; }
 .white { color: #ffffff;}
+.green { color: green; }
+.orange { color: orange; }
 /* width */
 .W500 { width: 500px}
 /* font */

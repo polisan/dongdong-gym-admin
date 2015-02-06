@@ -1,23 +1,14 @@
 <?php
 use yii\helpers\Html;
 
-$this->title = "查看场馆";
+$this->title = '查看场馆';
 $gym = $model->gym;    // 场馆信息（模拟）
 ?>
 
 <div class="homepage-main">
     <div class="container">
         <div class="col-menu">
-            <div class="menu-box-home">
-                <span class="menu-box-title"> </span>
-                <ul class="menu">
-                    <li><?= Html::a("查看场馆", ['/']); ?></li>
-                    <li><?= Html::a("场地管理", ['/gym/fields']); ?></li>
-                    <li><?= Html::a("教练管理", ['/gym/coaches']); ?></li>
-                    <li><?= Html::a("课程管理", ['/gym/courses']); ?></li>
-                    <li><?= Html::a("会员卡管理", ['/gym/members']); ?></li>
-                </ul>
-            </div>
+            <?php require('nav_menu_sidebar.php'); ?>
         </div>
         <div class="col-main">
             <div class="gym-box">
@@ -60,14 +51,14 @@ $gym = $model->gym;    // 场馆信息（模拟）
                             <ul>
                                 <?php
                                 foreach ($gym['field'] as $field) {
-                                    echo '<li>'.Html::a($field['name'].'('.$field['number'], ['#']).')</li>';
+                                    echo '<li>'.Html::a($field['name'].'('.$field['number'], ['/gym/fields/index']).')</li>';
                                 }
                                 ?>
                             </ul>
                         </div>
                         <div class="others-info-gym coach">
                             <h3>教练列表</h3>
-                            <?= Html::a("查看更多", ['#'], ['class' => 'link-more']) ?>
+                            <?= Html::a("查看更多", ['/gym/coaches/index'], ['class' => 'link-more']) ?>
                             <ul>
                                 <?php
                                 foreach ($gym['coach'] as $coach) {

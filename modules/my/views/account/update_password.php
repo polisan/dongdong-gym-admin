@@ -8,15 +8,7 @@ $this->title = '密码修改';
 <div>
     <div class="container">
         <div class="col-menu">
-            <div class="menu-box-home">
-                <span class="menu-box-title"> </span>
-                <ul class="menu">
-                    <li><?= Html::a("账号管理", ['profile']); ?></li>
-                    <li><?= Html::a("安全设置", ['security']); ?></li>
-                    <li><?= Html::a("场馆认证", ['']); ?></li>
-                    <li><?= Html::a("吐槽反馈", ['feedback']); ?></li>
-                </ul>
-            </div>
+            <?php require('nav_menu_sidebar.php'); ?>
         </div>
         <div class="col-main">
             <div class="content-box">
