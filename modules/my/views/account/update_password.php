@@ -2,16 +2,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-class UpdatePasswordForm extends \yii\base\Model
-{
-    public $oldPassword;
-    public $newPassword;
-    public $passwordRepeat;
-
-}
-
 $this->title = '密码修改';
-$model = new UpdatePasswordForm();
 ?>
 
 <div>
@@ -29,17 +20,17 @@ $model = new UpdatePasswordForm();
                             'id' => 'updatepassword-form',
                             'options' => ['class' => 'form-horizontal'],
                             'fieldConfig' => [
-                                'template' => '<div class="col-md-3">{label}</div><div class="col-md-9">{input}</div>',
+                                'template' => '<div class="col-md-3">{label}</div><div class="col-md-7">{input}</div><div>{error}</div>',
                                 'labelOptions' => ['class' => 'control-label'],
                             ],
                         ]);
                         ?>
 
-                        <?= $form->field($model, 'oldPassword')->label('旧密码') ?>
+                        <?= $form->field($model, 'oldPassword')->label('旧密码')->passwordInput() ?>
 
-                        <?= $form->field($model, 'newPassword')->label('新密码')->passwordInput()->hint('最短6位，区分大小写') ?>
+                        <?= $form->field($model, 'password')->label('新密码')->passwordInput() ?>
 
-                        <?= $form->field($model, 'passwordRepeat')->label('确认密码')->passwordInput()->hint('再次输入密码') ?>
+                        <?= $form->field($model, 'verifyPassword')->label('确认密码')->passwordInput() ?>
 
                         <div class="form-group">
                             <span class="col-md-offset-3">

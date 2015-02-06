@@ -3,6 +3,7 @@
 namespace app\modules\my\controllers;
 
 use app\components\NeedLoginController;
+use app\modules\my\models\UpdatePasswordForm;
 use Yii;
 
 class AccountController extends NeedLoginController
@@ -38,7 +39,8 @@ class AccountController extends NeedLoginController
     {
         return $this->render('bind_mail');
     }
-    public function actionUpdatemail()
+
+    public function actionUpdateEmail()
     {
         // 模拟邮箱验证三步骤，第一步验证旧的邮箱地址，第二步填写新的邮箱，第三步验证新的邮箱（发送验证连接）
         if (!isset($_POST['update'])) {
@@ -50,7 +52,7 @@ class AccountController extends NeedLoginController
             else $_POST['update'] += 1;
         }
 
-        return $this->render('update_mail');
+        return $this->render('update_email');
     }
 
     public function actionAccountattest()
@@ -58,10 +60,21 @@ class AccountController extends NeedLoginController
         return $this->render('account_attest');
     }
 
-    public function actionUpdatepassword()
+    public function actionUpdatePassword()
     {
-        return $this->render('update_password');
+        $model = new UpdatePasswordForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->updatePassword()) {
+                Yii::$app->session->setFlash('success', '密码修改成功');
+                return $this->redirect(['/my/account/security']);
+            }
+        }
+
+        return $this->render('update_password', [
+            'model' => $model,
+        ]);
     }
+
     public function actionUpdatetelephone()
     {
         // 模拟手机验证三步骤，第一步验证旧的手机，第二步填写新的手机并验证，第三步完成
