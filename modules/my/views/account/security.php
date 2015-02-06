@@ -32,7 +32,7 @@ $this->title = '安全设置';
                                     if (1) {
                                     ?>
                                     <dd class="detail">fi**163.com</dd>
-                                    <dd class="opr"><?= Html::a('更改', ['updatemail']) ?></dd>
+                                    <dd class="opr"><?= Html::a('更改', ['update-email']) ?></dd>
                                     <?php
                                     } else {
                                     ?>
