@@ -6,7 +6,7 @@ $this->title = "场馆主页";
 <div class="homepage-main">
     <div class="container">
         <div class="col-main">
-            <?= Html::a('增加场馆', ['gym/default/add']); ?>
+            <div class="add-access"><?= Html::a('+ 新增场馆', ['gym/default/add']) ?></div>
             <div class="list-gym">
                 <div class="list-gym-item">
                     <span class="logo-gym"></span>

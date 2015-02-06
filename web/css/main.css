@@ -2,6 +2,36 @@
 /*
  * This file contains all page style for gym admin page
  */
+/* general component style */
+.add-access {
+    display: block;
+    margin: 15px auto 30px auto;
+    width: 80%;
+    height: 100px;
+    background: #3aada0;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 100px;
+    color: #fff;
+    font-size: 2.0em;
+}
+.add-access > a{
+    color: #ccc;
+}
+.add-access:hover {
+    background: #45d6c9;
+}
+.add-access:hover > a{
+    color: #fff;
+}
+/* operator */
+.opr-mid {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 2.5em;
+}
 
 /* header style */
 #gym-header {
@@ -50,7 +80,7 @@
     line-height: 16px;
     border-left: 1px solid #e7e7eb;
 }
-
+/* the main navigation */
 .navbar-main {
     margin: 0 10px;
     width: 100%;
@@ -74,7 +104,7 @@
     background-color: #46EFAF;
 }
 
-/* menu style */
+/* the menu sidebar */
 .col-menu {
     float: left;
     width: 18%;
@@ -82,14 +112,14 @@
     margin:30px 0 0 20px;
 }
 
-.col-menu > .menu-box-home {
+.col-menu > .menu-sidebar {
     width:100%;
     height: 300px;
     -webkit-box-shadow: 2px 2px 2px 2px #909090;
     -moz-box-shadow: 2px 2px 2px 2px #909090;
     box-shadow: 2px 2px 2px 2px #909090;
 }
-.col-menu > .menu-box-home > .menu-box-title {
+.col-menu > .menu-sidebar > .menu-sidebar-title {
     margin: 5px 0px;
     padding: 5px;
     background: url('../images/bar-gym.png') -200px -200px no-repeat;
@@ -284,11 +314,100 @@ ul.menu > li {
 }
 #outer:after{ content:"."; height:0; visibility:hidden; display:block; clear:both; }
 
+/* the field stylle */
+.fc {
+    margin: 10px auto;
+    width: 98%;
+}
+.fc > dl {
+    padding: 10px 5px;
+    border: 1px dashed #1e977b;
+}
+.fc > dl > dt, dd{
+    display: inline-block;
+    padding: 5px 10px;
+    vertical-align: top;
+}
+
+.fc .fc-detail {
+    width: 20%;
+}
+
+.fc .fd-container {
+    width: 50%;
+}
+
+.fd-container ul > li {
+    position: relative;
+    float: left;
+    margin: 10px;
+    width: 60px;
+    height: 60px;
+    background: #54aa6e;
+    box-shadow: 0 0 5px rgba(0,0,0,.3) inset;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 60px;
+}
+.fd-container input[type="checkbox"] {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    margin: -4px ;
+    width: 20px;
+    height: 20px;
+}
+.fd-container .fd-item > .fd-name {
+    position: absolute;
+    top: 30px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+.fd-container .fd-item > .fd-status {
+    font-size: 0.9em;
+    font-weight: normal;
+}
+.fd-name-edit {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0;
+    width: 100%;
+    height: 20px;
+    background: #ccc;
+    border-radius: 0 0 4px 4px;
+    vertical-align: bottom;
+
+    line-height: 20px;
+    color: #fff;
+}
+.fd-item .fd-name-edit {
+    display: none;
+}
+.fd-item:hover .fd-name-edit {
+    display: block;
+}
+
+.fd-list .opr-confirm {
+    display: none;
+}
+.fd-list .opr-confirm > a{
+    font-size: 1.9em;
+}
+.fd-list .opr-confirm > a.js_delsubmit {
+    color: #ac0000;
+    font-size: 1.9em;
+}
+.fd-list .opr-confirm:hover > a.js_delsubmit {
+    color: red;
+}
+
 .clockpicker {
     display: inline-block;
     width: 45%;
 }
-
 .step-update {
     width: 480px;
     border-top: 5px solid #ccc;
