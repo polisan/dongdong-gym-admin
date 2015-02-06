@@ -2,24 +2,87 @@
 $(function() {
     $('.clockpicker').clockpicker();
     $('#btn-avatar-edit').on('click', ajaxFileUpload);
-    $('.js_addfield').on('click', addField);
-    $('.js_editfield').on('click', editField);
-    $('.js_delfield').on('click', delField);
+    $('.js_addfield').on('click', addField);           // add new field
+    $('.js_editfield').on('click', editField);         // edite the specified field
+    $('.js_delfield').on('click', delField);           // select field to delete
     $('.js_delsubmit').on('click', function() {
-        var container = $(this).parents('ul');
-        $(container.find('input:checkbox')).each(function() {
-            if($(this).is(':checked'))
-                $(this).parent().remove();
-            else $(this).hide();
-        });
-        $(container.children('.opr-regulation')).show();
-        $(container.children('.opr-confirm')).hide();
+        var r = confirm('确定要删除所选的场地，预约功能将不能使用');
+        if (r) {
+            var container = $(this).parents('ul');
+            $(container.find('input:checkbox')).each(function() {
+                if($(this).is(':checked'))
+                    $(this).parent().remove();
+                else $(this).hide();
+            });
+            $(container.children('.opr-regulation')).show();
+            $(container.children('.opr-confirm')).hide();
+        }
     });
     $('.js_delcancel').on('click', function() {
         var container = $(this).parents('ul')
         $(container.find('input:checkbox')).hide();
         $(container.children('.opr-regulation')).show();
         $(container.children('.opr-confirm')).hide();
+    });
+    $('.js_addtime').on('click', function() {
+        var gentimeStyle = '';
+        if ($(this).parents('.fd-gen-timetable').length > 0) {
+        gentimeStyle = '<li class="time-item">' +
+            '<h5 class="title">时间段: </h5>' +
+            '<select class="time-sel" name="">' +
+            '<option value="Mon">星期一</option>' +
+            '<option value="Tues">星期二</option>' +
+            '<option value="Wed">星期三</option>' +
+            '<option value="Thur">星期四</option>' +
+            '<option value="Fri">星期五</option>' +
+            '<option value="Sat">星期六</option>' +
+            '<option value="Sum">星期日</option>' +
+            '</select>' +
+            '<span class="clockpicker">' +
+            '<input type="text" name="" value="09:30">' +
+            '</span>' +
+            '<strong> 到 </strong>' +
+            '<span class="clockpicker">' +
+            '<input type="text" name="" value="21:30">' +
+            '</span>' +
+            '<div class="charge col-md-offset-2">' +
+            '<label class="charge-type col-md-2">收费方式</label>' +
+            '<select name="">' +
+            '<option value="1">按小时收费</option>' +
+            '<option value="2">按次收费</option>' +
+            '</select>' +
+            '<input type="text" name="" placeholder="0" /> 元' +
+            '</div>' +
+            '</li>';
+        }
+        else if ($(this).parents('.fd-special-timetable').length > 0) {
+            gentimeStyle = '<li class="time-item">' +
+                '<h5 class="title">时间段: </h5>' +
+                '<input type="text" name="from_date" value="2015-02-06" showanim="fold" showon="both" maxdate="new Date()" buttonimageonly="" dateformat="yy-mm-dd" class="datepicker hasDatepicker">' +
+                '<span class="clockpicker">' +
+                '<input type="text" name="" value="09:30">' +
+                '</span>' +
+                '<strong> 到 </strong>' +
+                '<span class="clockpicker">' +
+                '<input type="text" name="" value="21:30">' +
+                '</span>' +
+                '<div class="charge col-md-offset-2">' +
+                '<label class="charge-type col-md-2">收费方式</label>' +
+                '<select name="">' +
+                '<option value="1">按小时收费</option>' +
+                '<option value="2">按次收费</option>' +
+                '</select>' +
+                '<input type="text" name="" placeholder="0" /> 元' +
+                '</div>' +
+                '</li>';
+                }
+        $(this).before(gentimeStyle);
+        $(this).prev().find('.clockpicker').each(function(){
+            $(this).clockpicker();
+        });
+        $(this).prev().find('.datepicker').each(function(){
+            $(this).datepicker();
+        })
     });
     $('#btn-nickname-edit').on('click', function(){
         $('#nickname').toggle();
@@ -97,6 +160,7 @@ function editField() {
         data: {fd:fdid},
         success: function(result) {
             $('.modal-body').html(result);
+            $('#showModal').click();
         }
 
     });
@@ -104,9 +168,11 @@ function editField() {
 
 function addField() {
     var ul = $(this).parents('ul');
-    var name = ul.children().length - 1;
+    var name = ul.children().length - 3;
     name = name + '号场';
-    $(this).parent('li').before('<li class="fd-name self"><h5>'+ name + '</h5><span class="fd-name-edit"><a href="">修改</a></span></li>');
+    var fdStyle = '<li class="fd-item self"> <input type="checkbox"> <h5 class="fd-name">1号场</h5> <h5 class="fd-status orange">营业中</h5> <input type="hidden" value="1" class="fdid"> <span class="fd-name-edit"><a class="js_editfield" href="javascript:void(0);">修改</a></span> </li>';
+    $(this).parent('li').before(fdStyle);
+    $(this).parent('li').prev().find('.fd-name-edit').on('click', editField);
 }
 
 function delField() {

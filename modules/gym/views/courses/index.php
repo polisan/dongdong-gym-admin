@@ -1,5 +1,4 @@
 <?php
-
 use yii\bootstrap\Modal;
 use yii\bootstrap\Nav;
 
@@ -12,10 +11,10 @@ use yii\bootstrap\Nav;
         </div>
         <div class="col-main">
             <div class="content-box">
-                <h3>教练管理</h3>
+                <h3>课程管理</h3>
                 <div class="mc">
                     <?php
-                    // 模拟该场馆的教练类型（已加入/待加入)，
+                    //
                     $coachTypes = array(
                         'all' => '全部教练',
                         'unJoin' => '加入申请',

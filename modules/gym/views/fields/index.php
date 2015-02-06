@@ -105,8 +105,8 @@ $field[3][2]['name'] = '南区1号';
                                 ?>
                                 <dl>
                                     <dt>
-                                        <span><?= Html::a('编辑', ['fieldcategoryedit', 'id' => $id], ['class' => 'fc-opr']) ?></span>
-                                        <span><?= Html::a('删除', ['fieldcategorydelete', 'id' => $id], ['class' => 'fc-opr']) ?></span>
+                                        <span><?= Html::a('编辑', ['edit', 'id' => $id], ['class' => 'fc-opr']) ?></span>
+                                        <span><?= Html::a('删除', ['', 'id' => $id], ['class' => 'fc-opr']) ?></span>
                                         <h3> <?= $fc['name']; ?> </h3>
                                     </dt>
                                     <dd class="fc-detail">
@@ -145,5 +145,5 @@ $field[3][2]['name'] = '南区1号';
 </div>
 <?= Modal::widget([
     'header' => '<h5 style="color:#000;">场地名字</h5>',
-    'toggleButton' => ['clike'],
+    'toggleButton' => ['id' => 'showModal', 'style' => 'display:none;'],
 ])?>

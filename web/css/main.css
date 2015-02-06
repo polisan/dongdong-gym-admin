@@ -406,7 +406,6 @@ ul.menu > li {
 
 .clockpicker {
     display: inline-block;
-    width: 45%;
 }
 .step-update {
     width: 480px;
@@ -430,4 +429,24 @@ ul.menu > li {
 }
 .attest-info {
     list-style: none;
+}
+
+.fd-gen-timetable > .addtime {
+    text-align: center;
+    margin: 5px auto;
+}
+.fd-gen-timetable > .time-item .title {
+    display: inline-block;
+    margin-right: 15px;
+}
+.time-itme > .time-sel {
+    margin: 0 15px;
+}
+.fd-special-timetable > .addtime {
+    text-align: center;
+    margin: 5px auto;
+}
+.fd-special-timetable > .time-item .title {
+    display: inline-block;
+    margin-right: 15px;
 }
