@@ -15,7 +15,7 @@ $gym = $model->gym;    // 场馆信息（模拟）
                 <div class="main-gym">
                     <h3>场馆信息</h3>
                     <div class="profile-gym">
-                        <?= Html::a('<img src="../../dongdong/images/gym-logo.jpg"', ['home/gymCamera'], ['class' => 'logo-gym'] ) ?>
+                        <?= Html::a('<img src="/dongdong/gym-admin/images/gym-logo.jpg"', ['edit'], ['class' => 'logo-gym'] ) ?>
                         <div class="btn-venuse-setting"><?= Html::a('编辑', ['edit', 'op'=> 'edit']) ?></div>
                         <div class="simple-info">
                             <h3 class="name"> <?= $gym['name']; ?>【<strong class="status">营业中</strong>】</h3>

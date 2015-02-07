@@ -101,52 +101,6 @@ $this->title = "场馆主页";
                     </span>
                 </div>
             </div>
-            <div class="recent-info">
-                <div class="recent-info-title">最近情况</div>
-                <div>
-                    <span>最近浏览记录</span>
-                    <table>
-                        <tr>
-                            <th>时间</th>
-                            <th>教练</th>
-                            <th>普通用户</th>
-                        </tr>
-                        <tr>
-                            <td>最近30天</td>
-                            <td>20</td>
-                            <td>30</td>
-                        </tr>
-                        <tr>
-                            <td>2014年11月</td>
-                            <td>30</td>
-                            <td>50</td>
-                        </tr>
-                    </table>
-                </div>
-                <div>
-                    <span>最近评价情况</span>
-                    <table>
-                        <tr>
-                            <th>时间</th>
-                            <th>场馆评价</th>
-                            <th>资讯评价</th>
-                            <th>活动评价</th>
-                        </tr>
-                        <tr>
-                            <td>最近30天</td>
-                            <td>20</td>
-                            <td>30</td>
-                            <td>30</td>
-                        </tr>
-                        <tr>
-                            <td>2014年11月</td>
-                            <td>30</td>
-                            <td>50</td>
-                            <td>50</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
         </div>
     </div>
 </div>

@@ -17,12 +17,12 @@ $priceTablePrice = [
         </div>
         <div class="col-main">
             <div class="content-box">
-                <h3>场地修改</h3>
+                <h3>场地类型修改</h3>
                 <div class="mc">
                     <div class="mc-body">
                         <?php
                         $form = ActiveForm::begin([
-                            'id' => 'fc-add-form',
+                            'id' => 'fc-edit-form',
                             'options' => ['class' => 'form-horizontal'],
                             'fieldConfig' => [
                                 'template' => '<div class="col-md-2">{label}</div><div class="col-md-3">{input}</div>',
