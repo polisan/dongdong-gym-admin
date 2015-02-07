@@ -1,7 +1,8 @@
 
-/*
+/*******************************************************
  * This file contains all page style for gym admin page
- */
+ ********************************************************/
+
 /* general component style */
 .add-access {
     display: block;
@@ -23,6 +24,16 @@
 }
 .add-access:hover > a{
     color: #fff;
+}
+
+.add-access-mini {
+    display: inline-block;
+    float: right;
+    margin-right: 5px;
+    color: #fff;
+}
+.add-access-mini:hover > .link {
+    color: #00d400;
 }
 /* operator */
 .opr-mid {

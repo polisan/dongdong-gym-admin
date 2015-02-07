@@ -3,6 +3,7 @@
 use yii\bootstrap\Modal;
 use yii\bootstrap\Nav;
 
+$this->title = '已加入的教练列表';
 ?>
 
 <div class="homepage-main">
@@ -14,38 +15,21 @@ use yii\bootstrap\Nav;
             <div class="content-box">
                 <h3>教练管理</h3>
                 <div class="mc">
-                    <?php
-                    // 模拟该场馆的教练类型（已加入/待加入)，
-                    $coachTypes = array(
-                        'all' => '全部教练',
-                        'unJoin' => '加入申请',
-                    );
-                    $menuItems = array();
-                    if (!isset($_GET['coach']) || !array_key_exists($_GET['coach'], $coachType))
-                        $ct = 'all';
-                    else $ct = $_GET['coach'];
-                    foreach ($coachTypes as $coachType => $name) {
-                        if ($ct == $coachType) {
-                            $menuItems[] = array(
-                                'label' => $name,
-                                'url' => ['index', 'ct' => $coachType],
-                                'options' => ['class' => 'active'],
-                            );
-                        }
-                        else {
-                            $menuItems[] = array(
-                                'label' => $name,
-                                'url' => ['index', 'ct' => $coachType],
-                            );
-                        }
-                    }
-                    // 生成教练类型导航栏
-                    echo Nav::widget([
-                        'options' => ['class' => 'nav nav-tabs'],
-                        'items' => $menuItems,
-                    ]);
-                    ?>
+                    <?= Nav::widget([
+                        'items' => [
+                            [
+                                'label' => '全部教练',
+                                'url' => ['index'],
+                                'options' => ['class' => 'active '],
+                            ],
+                            [
+                                'label' => '加入邀请',
+                                'url' => ['attend'],
 
+                            ]
+                        ],
+                        'options' => ['class' => 'nav nav-tabs']
+                    ]) ?>
                     <div class="mc-body">
                     </div>
                 </div>
@@ -53,7 +37,3 @@ use yii\bootstrap\Nav;
         </div>
     </div>
 </div>
-<?= Modal::widget([
-    'header' => '<h5 style="color:#000;">场地名字</h5>',
-    'toggleButton' => ['clike'],
-])?>

@@ -1,5 +1,9 @@
 
+/*****************************
+ * 初始化
+ ***************************/
 $(function() {
+    $('a.js_ajax').each(htmlAjax);
     $('.clockpicker').clockpicker();
     $('#btn-avatar-edit').on('click', ajaxFileUpload);
     $('.js_addfield').on('click', addField);           // add new field
@@ -151,11 +155,14 @@ $(function() {
         });
     });
 });
+/*!************************************************************************
+ * the following functions used for different behavior
+ *************************************************************************/
 
 function editField() {
     var fdid = $(this).parents('.fd-item').children('.fdid').val();
     $.ajax({
-        url: '/dongdong/gym/fields/updatefield',
+        url: '/dongdong/gym-admin/gym/fields/edit',
         type: 'post',
         data: {fd:fdid},
         success: function(result) {
@@ -233,4 +240,75 @@ function ajaxFileUpload()
         }
     )
     return false;
+}
+
+/*!************************************************************************
+ * the following functions are general function that are used in most scene
+ *************************************************************************/
+/**
+ * 通过post进行ajax提交
+ * @param
+ */
+function submitAjax(parms) {
+    $.ajax({
+        url: parms.url,
+        async: false,
+        type: "post",
+        data: parms.query,
+        success: function(result) {
+            var msg = null;
+            try {
+                msg = $.parseJSON(result);
+                if (msg) {
+                    if (parseInt(msg.statusCode) == 200) {
+                        var html = '<div>' + msg.message + '</div>';
+                        $(html).dialog({
+                            modal: true
+                        });
+                    }
+                    else if (parseInt(msg.statusCode) == 300) {
+                        var html = '<div>' + msg.message + '</div>';
+                        $(html).dialog({
+                            modal: true
+                        });                    }
+                }
+                return msg.statusCode;
+            }
+            catch(e) {}
+            finally{}
+            return 300;
+        }
+    });
+}
+function htmlAjax() {
+    var _this = this;
+    var target = $(_this).attr('target');
+    $(_this).attr('target','_self');
+    var href = $(_this).attr('href');
+    $(_this).attr('href','javascript:;');
+    var query = $(_this).attr('query');
+    $(_this).attr('query', '');
+    $(_this).on('click', function() {
+        var confirm = $(_this).attr('confirm');
+        if (confirm) {
+            var confirmDialog = $('#confirmDialog');
+            $(confirmDialog).html(confirm);
+            $(confirmDialog).dialog('option', {
+                buttons: {
+                    '确定': function() {
+                        submitAjax({'url':href, 'query':query, 'target':target});
+                        $('#confirmDialog').dialog('close');
+                    },
+                    '取消': function() {
+                        $('#confirmDialog').dialog('close');
+                    }
+                }
+            });
+            $(confirmDialog).dialog('open');
+        }
+        else {
+            submitAjax({'url':href, 'query':query, 'target':target});
+        }
+        return false;
+    });
 }

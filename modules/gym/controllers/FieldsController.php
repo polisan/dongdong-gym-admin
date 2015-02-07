@@ -22,21 +22,6 @@ class FieldsController extends Controller
 
     public function actionEdit()
     {
-        $model = new FieldCategory();
-        return $this->render('fieldcategory_edit', ['model' => $model]);
-    }
-
-    public function actionAdd()
-    {
-        $model = new FieldCategory();
-        return $this->render('fieldcategory_add', ['model' => $model]);
-    }
-
-    public function actionDelete()
-    {}
-
-    public function actionUpdatefield()
-    {
         $fd = Yii::$app->request->post('fd');
         if (empty($fd) || $fd <=0 ) {
             throw new BadRequestHttpException();
@@ -45,7 +30,34 @@ class FieldsController extends Controller
             $this->layout = false;
             return $this->render('field_update');    // 显示修改field的表单
         }
-        else {
-        }
+    }
+
+    public function actionAdd()
+    {
+    }
+
+    public function actionDelete()
+    {}
+
+    // 编辑场地类型信息
+    public function actionEditFieldCategory()
+    {
+        $model = new FieldCategory();
+        return $this->render('fieldcategory_edit', ['model' => $model]);
+    }
+    // 增加场地类型
+    public function actionAddFieldCategory()
+    {
+        $model = new FieldCategory();
+        return $this->render('fieldcategory_add', ['model' => $model]);
+    }
+    // 删除场地类型
+    public function actionDeleteFieldCategory()
+    {
+        $message = [
+            'statusCode' => 200,
+            'message' => '删除成功',
+        ];
+        return json_encode($message);
     }
 }
