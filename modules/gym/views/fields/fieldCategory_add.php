@@ -27,7 +27,7 @@ $weekdays = [
         </div>
         <div class="col-main">
             <div class="content-box">
-                <h3>新增场地</h3>
+                <h3>新增场地类型</h3>
                 <div class="mc">
                     <div class="mc-body">
                         <?php

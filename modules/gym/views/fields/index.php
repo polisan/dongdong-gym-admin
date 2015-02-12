@@ -3,6 +3,7 @@
 use yii\bootstrap\Modal;
 use yii\bootstrap\Nav;
 use yii\helpers\Html;
+use yii\jui\Dialog;
 
 $this->title = '场地详情';
 // 模拟数据：场地种类，共有3类
@@ -98,15 +99,15 @@ $field[3][2]['name'] = '南区1号';
                     ]);
                     ?>
                     <div class="mc-body">
-                        <div class="add-access"><?= Html::a('+ 增加场地', ['add']) ?></div>
+                        <div class="add-access"><?= Html::a('+ 增加场地类型', ['fields/add-field-category']) ?></div>
                         <div class="fc">
                             <?php
                             foreach ($fieldCategory as $id => $fc) {
                                 ?>
                                 <dl>
                                     <dt>
-                                        <span><?= Html::a('编辑', ['edit', 'id' => $id], ['class' => 'fc-opr']) ?></span>
-                                        <span><?= Html::a('删除', ['', 'id' => $id], ['class' => 'fc-opr']) ?></span>
+                                        <span><?= Html::tag('a', '编辑', ['href' => 'fields/edit-field-category',]) ?></span>
+                                        <span><?= Html::tag('a', '删除', ['href' => 'fields/delete-field-category', 'query' => $id, 'class' => 'js_ajax', 'confirm' => '确定要删除']) ?></span>
                                         <h3> <?= $fc['name']; ?> </h3>
                                     </dt>
                                     <dd class="fc-detail">
@@ -123,13 +124,13 @@ $field[3][2]['name'] = '南区1号';
                                                     <h5 class="fd-name"><?= $fd['name'] ?></h5>
                                                     <h5 class="fd-status orange">营业中</h5>
                                                     <input type="hidden" value="<?= $fd['id'] ?>" class="fdid" />
-                                                    <span class="fd-name-edit"><?= Html::tag('a', '修改', ['class' => 'js_editfield', 'href' => 'javascript:void(0);']) ?></span>
+                                                    <span class="fd-name-edit"><?= Html::tag('a', '修改', ['class' => 'js_editfield', 'href' => 'javascript:0;']) ?></span>
                                                 </li>
                                             <?php  } ?>
-                                            <li class="opr-regulation"><?= Html::tag('a', '+', ['class' => 'opr-mid js_addfield', 'href' => 'javascript:void(0);']) ?></li>
-                                            <li class="opr-confirm"><?= Html::tag('a', 'Yes', ['class' => 'opr-mid js_delsubmit', 'href' => 'javascript:void(0);']) ?></li>
-                                            <li class="opr-regulation"><?= Html::tag('a', '-', ['class' => 'opr-mid js_delfield', 'href' => 'javascript:void(0);']) ?></li>
-                                            <li class="opr-confirm"><?= Html::tag('a', 'No', ['class' => 'opr-mid js_delcancel', 'href' => 'javascript:void(0);']) ?></li>
+                                            <li class="opr-regulation"><?= Html::tag('a', '+', ['class' => 'opr-mid js_addfield', 'href' => 'javascript:;']) ?></li>
+                                            <li class="opr-confirm"><?= Html::tag('a', 'Yes', ['class' => 'opr-mid js_delsubmit', 'href' => 'javascript:;']) ?></li>
+                                            <li class="opr-regulation"><?= Html::tag('a', '-', ['class' => 'opr-mid js_delfield', 'href' => 'javascript:;']) ?></li>
+                                            <li class="opr-confirm"><?= Html::tag('a', 'No', ['class' => 'opr-mid js_delcancel', 'href' => 'javascript:;']) ?></li>
                                         </ul>
                                     </dd>
                                 </dl>
@@ -147,3 +148,14 @@ $field[3][2]['name'] = '南区1号';
     'header' => '<h5 style="color:#000;">场地名字</h5>',
     'toggleButton' => ['id' => 'showModal', 'style' => 'display:none;'],
 ])?>
+
+<?= Dialog::widget([
+    'clientOptions' => [
+        'dialogClass' => 'black-tie',
+        'modal' => true,
+        'autoOpen' => false,
+    ],
+    'options' => [
+        'id' => 'confirmDialog'
+    ]
+]);

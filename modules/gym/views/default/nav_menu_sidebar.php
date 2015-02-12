@@ -15,7 +15,7 @@ use yii\helpers\Html;
         ['label' => '场地管理', 'url' => ['fields/']],
         ['label' => '教练管理', 'url' => ['coaches/']],
         ['label' => '课程管理', 'url' => ['courses/']],
-        ['label' => '会员卡管理', 'url' => ['members/']],
+        ['label' => '会员卡管理', 'url' => ['membercards/']],
     ];
     echo Nav::widget([
         'options' => ['class' => 'nav nav-tabs nav-stacked menu-sidebar-group'],
