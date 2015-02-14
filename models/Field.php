@@ -54,7 +54,7 @@ class Field extends ActiveRecord
         ];
     }
 
-    public function getFieldCategory()
+    public function getCategory()
     {
         return $this->hasOne(FieldCategory::className(), ['id' => 'category']);
     }

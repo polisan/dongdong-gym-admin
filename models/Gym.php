@@ -81,14 +81,14 @@ class Gym extends ActiveRecord
             ->orderBy('id');
     }
 
-    public function getGymCourses()
+    public function getCourses()
     {
         return $this->hasMany(GymCourse::className(), ['gym_id' => 'id'])
             ->where(['status' => GymCourse::STATUS_ACTIVE])
             ->orderBy('id');
     }
 
-    public function getGymMembercards()
+    public function getMembercards()
     {
         return $this->hasMany(GymMembercard::className(), ['gym_id' => 'id'])
             ->where(['status' => GymMembercard::STATUS_ACTIVE])
@@ -102,7 +102,7 @@ class Gym extends ActiveRecord
             ->orderBy('id');
     }
 
-    public function getGymAdmin()
+    public function getAdmin()
     {
         return $this->hasOne(GymAdmin::className(), ['id' => 'gym_admin_id']);
     }

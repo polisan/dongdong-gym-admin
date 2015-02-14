@@ -59,7 +59,7 @@ class GymCourse extends ActiveRecord
         return $this->hasOne(Gym::className(), ['id' => 'gym_id']);
     }
 
-    public function getGymCourseItems()
+    public function getItems()
     {
         return $this->hasMany(GymCourseItem::className(), ['gym_course_id', 'id'])
             ->where(['status' => GymCourseItem::STATUS_ACTIVE])
