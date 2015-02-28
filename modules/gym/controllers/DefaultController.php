@@ -3,6 +3,13 @@
 namespace app\modules\gym\controllers;
 
 use app\models\Area;
+use app\models\Field;
+use app\models\FieldCategory;
+use app\models\Gym;
+use app\models\GymAdmin;
+use app\models\GymCourseItem;
+use app\models\GymSports;
+use yii\base\Model;
 use app\modules\gym\models\GymInfo;
 use yii\web\Controller;
 
@@ -19,7 +26,11 @@ class DefaultController extends Controller
     {
 
         $gymInfo = new GymInfo();
-        $model =  $gymInfo->getInfoByID($this->id);
+        $model = $gymInfo->attributes;
+        $fieldCategory = new FieldCategory();
+        $model->field = $fieldCategory->getFields();
+        $gymCourse = new GymCourseItem();
+        $model->coach = $gymCourse->getGymCourse();
         return $this->render('index', ['model' => $model]);
     }
 
@@ -33,8 +44,7 @@ class DefaultController extends Controller
         $model = new Gymuser();
 
         $gymInfo = new GymInfo();
-        //$gymInfo->attributes = $_POST['form'];
-        //$provinces = $_POST['provinces'];
+
 
         $provinces = Area::findProvinces();
 
@@ -48,7 +58,6 @@ class DefaultController extends Controller
     // 表单包含上述场馆基本信息
     public function actionAdd()
     {
-        $model = new Gymuser();
 
         $provinces = Area::findProvinces();
         $provinceNames[] = "请选择省份";
@@ -56,19 +65,56 @@ class DefaultController extends Controller
             $provinceNames[$province['id']] = $province['name'];
         }
 
-        return $this->render('gym_add', [
-            'model' => $model,
-            'provinces' => $provinceNames,
-        ]);
+        $model = new GymInfo();
+        $test= \Yii::$app->request->post();
+
+
+        if($test)
+        {
+//            echo $test['province'];
+//            echo $test['GymInfo']['contact'];
+//            echo $test['GymInfo']['wechat'];
+
+            $model->attributes = $test['GymInfo'];
+            $model->open_time ="[".$_POST['begin_time'].','.$_POST['end_time'].']';
+            echo $test['province'];
+            $GymUser_id =  \Yii::$app->getUser()->id;
+            $manager = GymAdmin::findIdentity($GymUser_id);
+            $model->manager = $manager['username'];
+            $model->province = $test['province'];
+            $model->city = $test['city'];
+            $model->county = $test['county'];
+            $model->wechat = $test['GymInfo']['wechat'];
+            $model->sports = $test['GymInfo']['sports'];
+            $model->saveGymInfo($GymUser_id);
+            $fieldCategory = new FieldCategory();
+            $model->field = $fieldCategory->getFields();
+            $gymCourse = new GymCourseItem();
+            $model->coach = $gymCourse->getGymCourse();
+            return $this->render('gym_add',[
+                'model' => $model,
+                'provinces' => $provinceNames,
+            ]);
+        }
+        else {
+
+            echo 'index';
+
+            return $this->render('gym_add', [
+                'model' => $model,
+                'provinces' => $provinceNames,
+            ]);
+        }
     }
 
     public function actionDelete()
-    {}
+    {
+
+    }
 }
 
 /*----------- 写页面所用，后要删除 ---------*/
 
-use yii\base\Model;
 
 class GymUser extends Model {
 

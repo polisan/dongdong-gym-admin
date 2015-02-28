@@ -31,12 +31,12 @@ $this->title = '新增场馆';
                 <div class="col-md-9">
                     <div class="input-group clockpicker">
                         开始时间:
-                        <input type="text" class="form-control" value="09:30">
+                        <input type="text" name="begin_time" class="form-control" value="09:30">
                     </div>
                     <strong>&nbsp;&nbsp;</strong>
                     <div class="input-group clockpicker">
                         结束时间:
-                        <input type="text" class="form-control" value="09:30">
+                        <input type="text" name="end_time" class="form-control" value="09:30">
                     </div>
                 </div>
             </div>

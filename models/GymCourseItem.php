@@ -63,6 +63,7 @@ class GymCourseItem extends ActiveRecord
         return $this->hasOne(GymCourse::className(), ['id' => 'gym_course_id']);
     }
 
+
     public function getSports()
     {
         return $this->hasOne(Sports::className(), ['id' => 'sports_id']);

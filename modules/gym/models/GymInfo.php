@@ -9,7 +9,9 @@
 namespace app\modules\gym\models;
 
 
+use app\models\Field;
 use app\models\Gym;
+use app\models\GymAdmin;
 use app\models\Sports;
 use app\models\GymMembercard;
 use app\models\GymSports;
@@ -42,10 +44,15 @@ class GymInfo extends  Model{
     public $field;
     public $coach;
 
+
+    public $province;
+    public $city;
+    public $county;
+
     public function rules()
     {
         return[
-            [['name','open_time', 'area_id', 'location', 'description', 'manager', 'contact', 'logo', 'sports', 'field', 'coach'], 'required'],
+            [['name', 'support_membercard', 'open_time', 'location', 'description', 'contact',], 'required'],
 
             ['name', 'unique'],
 
@@ -81,7 +88,7 @@ class GymInfo extends  Model{
     public function getInfoByID($id)
     {
         $gym = new Gym();
-        $gym = $gym->findById($id);
+        //$gym = $gym->findById($id);
 
 
         if($gym != null) {
@@ -96,7 +103,7 @@ class GymInfo extends  Model{
             $this->wechat = $gym->wechat;
             $this->support_membercard = $gym->support_membercard;
 
-            $this->sports = ['a','b'];
+            $this->sports = ['a' => 'en','b' =>'en2',];
             $this->coach = [
                 ['name' => '李晓波', 'gender' => '1', 'work_type' => '0', 'sport' => ['羽毛球', '篮球'],],
                 ['name' => '德芙', 'gender' => '0', 'work_type' => '0', 'sport' => ['游泳', '篮球'],],
@@ -126,7 +133,7 @@ class GymInfo extends  Model{
             $this->support_membercard = '0';
 
 
-            $this->sports = ['a','b'];
+            $this->sports = ['a'=>'haihui','b'=>'haihai',];
             $this->coach = [
                 ['name' => '李晓波', 'gender' => '1', 'work_type' => '0', 'sport' => ['羽毛球', '篮球'],],
                 ['name' => '德芙', 'gender' => '0', 'work_type' => '0', 'sport' => ['游泳', '篮球'],],
@@ -144,14 +151,96 @@ class GymInfo extends  Model{
 
     }
 
-    public function saveGymInfoByID()
+    public function saveGymInfo($id)
     {
-
+        $gym = new Gym();
+        $gym->name = $this->name;
+       // $gym->status = $this->status;
+        $gym->contact = $this->contact;
+        //$gym->logo = $this->logo;
+        $gym->manager = $this->manager;
+        $gym->description = $this->description;
+        $gym->open_time = $this->open_time;
+        $gym->location = $this->location;
+        $gym->wechat = $this->wechat;
+        $gym->support_membercard = $this->support_membercard;
+        $gym->gym_admin_id = $id;
+        $gym->created_at = time();
+        $gym->updated_at = time();
+        $gym->area_id = $this->province;
+        $gym->latitude = 4.5;
+        $gym->longitude = 4.7;
+        if($gym->save()) {
+            $sports = $this->sports;
+            foreach ($sports as $sport) {
+                $gym_sports = new GymSports();
+                $gym_sports->gym_id = $gym->id;
+                $gym_sports->sports_id = $sport;
+                echo 'before gymsports';
+                echo $gym_sports->sports_id;
+                echo 'end gm';
+                $gym_sports->created_at = time();
+                $gym_sports->updated_at = time();
+                if($gym_sports->save())
+                   ;
+                else
+                {
+                    return false;
+                }
+                next($sports);
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public function getAllSports()
     {
+        $allSports = Sports::listAll();
+        $returnSports = [];
+        foreach($allSports as $sport)
+        {
+            $returnSports[$sport['id']] = $sport['name'];
+        }
+        return $returnSports;
+    }
 
+    public function getFiled()
+    {
+
+        return [
+            'name'=>'fieldName',
+            'number' => '10',
+        ];
+    }
+
+    public function setField()
+    {
+        return[
+            'name'=>'fieldName@',
+            'number' => '101',
+        ];
+    }
+
+    public function getCoach()
+    {
+        return[
+            'name' => 'haihui',
+            'worktype' => '0',
+            'gender' => 'man',
+        ];
+    }
+
+    public function setCoach()
+    {
+        return[
+            'name' => 'haihui',
+            'worktype' => '0',
+            'gender' => 'woman',
+        ];
     }
 
 }
