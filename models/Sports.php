@@ -38,7 +38,6 @@ class Sports extends ActiveRecord
         ];
     }
 
-
     /**
      * @inheritdoc
      */

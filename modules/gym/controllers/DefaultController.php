@@ -2,8 +2,9 @@
 
 namespace app\modules\gym\controllers;
 
-use app\models\Area;
 use app\components\NeedLoginController;
+use app\models\Area;
+use app\modules\gym\models\GymInfo;
 
 class DefaultController extends NeedLoginController
 {
@@ -16,17 +17,31 @@ class DefaultController extends NeedLoginController
      */
     public function actionIndex()
     {
-        $model = new GymUser();
+
+        $gymInfo = new GymInfo();
+        $model =  $gymInfo->getInfoByID($this->id);
         return $this->render('index', ['model' => $model]);
     }
 
     /** TODO: 编辑场馆信息
      * 编辑上述场馆基本信息
+     * 1.从数据库获得当前场馆信息
+     * 2.提交Post后更新到数据库
      **/
     public function actionEdit()
     {
         $model = new Gymuser();
-        return $this->render('gym_edit', ['model' => $model]);
+
+        $gymInfo = new GymInfo();
+        //$gymInfo->attributes = $_POST['form'];
+        //$provinces = $_POST['provinces'];
+
+        $provinces = Area::findProvinces();
+
+        return $this->render('gym_edit', [
+            'model' => $model,
+            'provinces'=>$provinces,
+        ]);
     }
 
     // TODO: 新添场馆

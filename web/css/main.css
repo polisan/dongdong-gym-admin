@@ -542,12 +542,12 @@ ul.menu > li {
 }
 .img-thumb.default {
     display: block;
-    color: #c0c0c0;
+    background-color: #EAF5F2;
+    color: #9FC8B4;
     text-align: center;
     line-height: 160px;
     font-weight: 400;
     font-style: normal;
-    background-color: #b8cdc6;
     font-size: 16px;
 }
 
@@ -557,3 +557,4 @@ ul.menu > li {
     display: block;
     clear: both;
 }
+.upload

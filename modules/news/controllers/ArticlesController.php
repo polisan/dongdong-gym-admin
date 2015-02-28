@@ -16,7 +16,6 @@ class ArticlesController extends NeedLoginController
      */
     public function actionIndex()
     {
-        $allSports = Sports::listAll();
         return $this->render('posts');
     }
 

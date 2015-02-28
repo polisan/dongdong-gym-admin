@@ -62,7 +62,7 @@ class FieldCategory extends ActiveRecord
             ->orderBy('id');
     }
 
-    public function getFieldCharges()
+    public function getCharges()
     {
         return $this->hasMany(FieldCharge::className(), ['field_category_id' => 'id'])
             ->orderBy('id');

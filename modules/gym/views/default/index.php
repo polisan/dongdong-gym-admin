@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 
 $this->title = '查看场馆';
-$gym = $model->gym;    // 场馆信息（模拟）
+$gym = $model;    // 场馆信息（模拟）
 ?>
 
 <div class="homepage-main">

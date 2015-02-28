@@ -20,8 +20,8 @@ $this->title = '写资讯';
                 'id' => 'article-add-form',
                 'options' => ['class' => 'form-horizontal'],
                 'fieldConfig' => [
-                    'template' => '{label}<div class="col-md-9">{input}</div>',
-                    'labelOptions' => ['class' => 'control-label col-md-2']
+                    'template' => '{label}<div class="col-md-7">{input}</div><div>{hint}</div>',
+                    'labelOptions' => ['class' => 'control-label col-md-2'],
                 ],
             ]);
             ?>
@@ -34,9 +34,23 @@ $this->title = '写资讯';
 
                     <?= $form->field($model, 'title')->label('标题'); ?>
 
-                    <?= $form->field($model, 'summary')->label('摘要'); ?>
+                    <?= $form->field($model, 'summary')->label('摘要')->hint('不超过15字'); ?>
 
                     <?= $form->field($model, 'sports_id')->label('运动类型')->dropDownList($sports); ?>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">
+                            <strong class="title">封面</strong>
+                        </label>
+                        <div class="upload-wrap col-md-9">
+                            <div class="upload-box">
+                                <?= Html::a('上传', [''], ['class' => 'btn btn-primary']) ?>
+                                <input type="file" accept="image/*" style="display: none;">
+                                <?= Html::a('从图片库中选择', [''], ['class' => 'btn btn-primary', 'id' => 'js_imagedialog']) ?>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="news-content clearfix">

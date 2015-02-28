@@ -81,11 +81,11 @@ class GymAdmin extends ActiveRecord implements IdentityInterface
     public static function findIdentityByAccessToken($token, $type = null)
     {
         if ($token) {
-            return static::findOne([
-                'access_token' => $token,
-                'access_token_expire_at >= '.time(),
-                'status' => self::STATUS_ACTIVE,
-            ]);
+            return static::find()
+                ->where(['access_token' => $token])
+                ->andWhere(['>=', 'access_token_expire_at', time()])
+                ->andWhere(['status' => self::STATUS_ACTIVE])
+                ->one();
         }
 
         return null;

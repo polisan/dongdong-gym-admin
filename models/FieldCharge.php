@@ -56,7 +56,7 @@ class FieldCharge extends ActiveRecord
         ];
     }
 
-    public function getFieldCategory()
+    public function getCategory()
     {
         return $this->hasOne(FieldCategory::className(), ['id' => 'field_category_id']);
     }
