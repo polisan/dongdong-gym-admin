@@ -3,9 +3,9 @@
 namespace app\modules\gym\controllers;
 
 use app\models\Area;
-use yii\web\Controller;
+use app\components\NeedLoginController;
 
-class DefaultController extends Controller
+class DefaultController extends NeedLoginController
 {
     /** TODO: 查看场馆信息
      * 1、基本信息：包括名字，Logo，营业时间，联系方式，地区，详细地址，
@@ -48,7 +48,13 @@ class DefaultController extends Controller
     }
 
     public function actionDelete()
-    {}
+    {
+        $message = [
+            'statusCode' => 200,
+            'message' => '删除场馆成功',
+        ];
+        return json_encode($message);
+    }
 }
 
 /*----------- 写页面所用，后要删除 ---------*/

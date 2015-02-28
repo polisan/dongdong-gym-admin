@@ -2,13 +2,13 @@
 
 namespace app\modules\gym\controllers;
 
-use app\models\FieldCategory;
 use Yii;
+use app\models\FieldCategory;
 use yii\web\BadRequestHttpException;
-use yii\web\Controller;
+use app\components\NeedLoginController;
 use app\models\Field;
 
-class FieldsController extends Controller
+class FieldsController extends NeedLoginController
 {
     /** TODO: 查看场地详细信息
      *  1、场地类型信息：场地类型名称，运动类型，收费方式，价格表，场地说明

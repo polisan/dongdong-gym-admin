@@ -46,8 +46,8 @@ MainAsset::register($this);
         <?php
         $curModule = Yii::$app->controller->module->getUniqueId();    // get the current module name
         $curRoute = '';
-        if ($curModule == 'new')
-            $curRoute = 'news/default';
+        if ($curModule == 'news')
+            $curRoute = 'news/articles';
         else if ($curModule == 'activity')
             $curRoute = 'activity/default';
         else if ($curModule == 'message')
@@ -59,7 +59,7 @@ MainAsset::register($this);
         <?php
         $menuItems = [
             ['label' => '场馆主页', 'url' => ['/']],
-            ['label' => '资讯管理', 'url' => ['/news/default']],
+            ['label' => '资讯管理', 'url' => ['/news/articles']],
             ['label' => '活动管理', 'url' => ['/activity/default']],
             ['label' => '消息中心', 'url' => ['/message/default']],
             ['label' => '账号管理', 'url' => ['/my/account/profile']],
