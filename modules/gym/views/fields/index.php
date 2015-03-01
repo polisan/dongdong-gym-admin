@@ -151,7 +151,6 @@ $field[3][2]['name'] = '南区1号';
 
 <?= Dialog::widget([
     'clientOptions' => [
-        'dialogClass' => 'black-tie',
         'modal' => true,
         'autoOpen' => false,
     ],

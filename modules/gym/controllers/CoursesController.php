@@ -2,9 +2,9 @@
 
 namespace app\modules\gym\controllers;
 
-use yii\web\Controller;
+use app\components\NeedLoginController;
 
-class CoursesController extends Controller
+class CoursesController extends NeedLoginController
 {
     public function actionIndex()
     {
