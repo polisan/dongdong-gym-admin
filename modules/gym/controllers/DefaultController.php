@@ -25,12 +25,10 @@ class DefaultController extends Controller
     public function actionIndex()
     {
 
-        $gymInfo = new GymInfo();
-        $model = $gymInfo->attributes;
-        $fieldCategory = new FieldCategory();
-        $model->field = $fieldCategory->getFields();
-        $gymCourse = new GymCourseItem();
-        $model->coach = $gymCourse->getGymCourse();
+        $model = new GymInfo();
+        //$model = $gymInfo->attributes;
+        $model->field = $model->getFiled();
+        $model->coach = $model->getCoach();
         return $this->render('index', ['model' => $model]);
     }
 
@@ -41,12 +39,37 @@ class DefaultController extends Controller
      **/
     public function actionEdit()
     {
-        $model = new Gymuser();
+        $model = new GymInfo();
+        //$model = $gymInfo->attributes;
+        $model->field = $model->getFiled();
+        $model->coach = $model->getCoach();
+        //$provinces = Area::findProvinces();
+        $provinces = $model->province;
 
-        $gymInfo = new GymInfo();
-
-
-        $provinces = Area::findProvinces();
+        $results = \Yii::$app->request->post();
+        if($results)
+        {
+            $model->attributes = $results['GymInfo'];
+            $model->open_time ="[".$_POST['begin_time'].','.$_POST['end_time'].']';
+            echo $results['province'];
+            $GymUser_id =  \Yii::$app->getUser()->id;
+            $manager = GymAdmin::findIdentity($GymUser_id);
+            $model->manager = $manager['username'];
+            $model->province = $results['province'];
+            $model->city = $results['city'];
+            $model->county = $results['county'];
+            $model->wechat = $results['GymInfo']['wechat'];
+            $model->sports = $results['GymInfo']['sports'];
+            $model->saveGymInfo($GymUser_id);
+            $fieldCategory = new FieldCategory();
+            $model->field = $model->getFiled();
+            $gymCourse = new GymCourseItem();
+            $model->coach = $model->getCoach();
+            return $this->render('index',[
+                'model' => $model,
+                //'provinces' => $provinceNames,
+            ]);
+        }
 
         return $this->render('gym_edit', [
             'model' => $model,
@@ -71,9 +94,6 @@ class DefaultController extends Controller
 
         if($test)
         {
-//            echo $test['province'];
-//            echo $test['GymInfo']['contact'];
-//            echo $test['GymInfo']['wechat'];
 
             $model->attributes = $test['GymInfo'];
             $model->open_time ="[".$_POST['begin_time'].','.$_POST['end_time'].']';
@@ -88,12 +108,12 @@ class DefaultController extends Controller
             $model->sports = $test['GymInfo']['sports'];
             $model->saveGymInfo($GymUser_id);
             $fieldCategory = new FieldCategory();
-            $model->field = $fieldCategory->getFields();
+            $model->field = $model->getFiled();
             $gymCourse = new GymCourseItem();
-            $model->coach = $gymCourse->getGymCourse();
-            return $this->render('gym_add',[
+            $model->coach = $model->getCoach();
+            return $this->render('index',[
                 'model' => $model,
-                'provinces' => $provinceNames,
+               //'provinces' => $provinceNames,
             ]);
         }
         else {

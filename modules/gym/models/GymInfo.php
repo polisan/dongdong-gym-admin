@@ -212,34 +212,34 @@ class GymInfo extends  Model{
     {
 
         return [
-            'name'=>'fieldName',
-            'number' => '10',
+            ['name'=>'fieldName',
+            'number' => '10',],
         ];
     }
 
     public function setField()
     {
         return[
-            'name'=>'fieldName@',
-            'number' => '101',
+            ['name'=>'fieldName@',
+            'number' => '101',],
         ];
     }
 
     public function getCoach()
     {
         return[
-            'name' => 'haihui',
-            'worktype' => '0',
-            'gender' => 'man',
+            ['name' => 'haihui',
+            'work_type' => '0',
+            'gender' => 'man',],
         ];
     }
 
     public function setCoach()
     {
         return[
-            'name' => 'haihui',
+            ['name' => 'haihui',
             'worktype' => '0',
-            'gender' => 'woman',
+            'gender' => 'woman',],
         ];
     }
 
