@@ -12,7 +12,7 @@ $this->title = "场馆主页";
                 <div class="list-gym-item">
                     <span class="logo-gym"></span>
                     <div class="gym-info">
-                        <span class="gym-name"> <?= Html::a('杭州体育馆', ['gym/default']); ?> </span>
+                        <span class="gym-name"> <?= Html::a('杭州体育馆', ['gym/default', 'id' => 10]); ?> </span>
                         <span class="gym-district">杭州西湖区</span>
                         <span class="gym-authentic">未认证</span>
                         <ul class="gym-sports">

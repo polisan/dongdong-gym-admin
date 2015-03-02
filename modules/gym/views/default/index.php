@@ -16,11 +16,11 @@ $gym = $model;    // 场馆信息（模拟）
                     <h3>场馆信息</h3>
                     <div class="profile-gym">
                         <?= Html::a('<img src="/dongdong/gym-admin/images/gym-logo.jpg"', ['edit'], ['class' => 'logo-gym'] ) ?>
-                        <div class="btn-venuse-setting"><?= Html::a('编辑', ['edit', 'op'=> 'edit']) ?></div>
+                        <div class="btn-venuse-setting"><?= Html::a('编辑', ['edit', 'op'=> 'edit', 'params'=> $gym_id,]) ?></div>
                         <div class="simple-info">
                             <h3 class="name"> <?= $gym['name']; ?>【<strong class="status">营业中</strong>】</h3>
                             <ul>
-                                <li class="district"><b>所在地区：</b>杭州 西湖区 <span><?= $gym['location'] ?></span></li>
+                                <li class="district"><b>所在地区：</b><span><?= $gym['location'] ?></span></li>
                                 <li><b>联系方式：</b><?= $gym['contact'] ?></li>
                                 <li><b>营业时间：</b><?= $gym['open_time'] ?></li>
                                 <?php
@@ -31,9 +31,9 @@ $gym = $model;    // 场馆信息（模拟）
                                 <li><b>支持会员：</b>
                                     <?php
                                     if ($gym['support_membercard']) {
-                                        echo '支持';
+                                        echo '不支持';
                                     }
-                                    else echo '不支持';
+                                    else echo '支持';
                                     ?>
                                 </li>
                                 <li><b>经营项目：</b>

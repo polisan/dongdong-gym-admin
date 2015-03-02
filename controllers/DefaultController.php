@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\components\NeedLoginController;
+use app\models\Gym;
 use Yii;
 
 class DefaultController extends NeedLoginController
@@ -21,6 +22,12 @@ class DefaultController extends NeedLoginController
 
     public function actionIndex()
     {
-        return $this->render('index');
+        /*
+         * get Gym list
+         * */
+        $gymList = Gym::findAll(['status' => Gym::STATUS_ACTIVE]);
+        return $this->render('index',[
+            'modle' => $gymList,
+        ]);
     }
 }
