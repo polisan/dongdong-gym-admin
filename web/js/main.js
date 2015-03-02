@@ -88,12 +88,36 @@ $(function() {
             $(this).datepicker();
         })
     });
+    $('#js_batchedit').each(function() {
+        var status = 1;
+        $(this).attr('status', '');
+        $(this).on('click', function() {
+            $('.bat-opr').toggle();
+            $('.checkitem').toggle();
+            if (status) {
+                $(this).text('退出管理');
+                status = 0;
+            }
+            else {
+                $(this).text('批量管理');
+                status = 1;
+            }
+        });
+    });
+    $('#checkall').on('click', function() {
+        $('.checkitem').each(function() {
+            var status = $(this).prop('checked');
+            $(this).prop('checked', !status);
+        });
+    });
     $('#btn-nickname-edit').on('click', function(){
         $('#nickname').toggle();
         $('#nickname-edit').toggle();
         $('#btn-nickname-edit').hide();
         $('#btn-nickname-change').show();
-
+    });
+    $('#editor').each(function() {
+        var ue = UE.getEditor('editor');
     });
     $('#btn-nickname-change').on('click', function(){
         var n = $('#nickname');

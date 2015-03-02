@@ -64,6 +64,9 @@ $config = [
         'passport' => [
             'class' => 'app\modules\passport\Module',
         ],
+        'news' => [
+            'class' => 'app\modules\news\Module',
+        ],
     ],
     'params' => $params,
 ];

@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\jui\Dialog;
 
 $this->title = "场馆主页";
 ?>
@@ -38,6 +39,7 @@ $this->title = "场馆主页";
                             </span>
                         </div>
                     </div>
+                    <div><?= Html::tag('a', '移除', ['href' => 'gym/default/delete', 'class' => 'js_ajax', 'confirm' => '确定要删除该场馆' ]) ?></div>
                 </div>
                 <div class="list-gym-item">
                     <span class="logo-gym"></span>
@@ -69,6 +71,7 @@ $this->title = "场馆主页";
                             </span>
                         </div>
                     </div>
+                    <div><?= Html::tag('a', '移除', ['href' => 'gym/default/delete', 'class' => 'js_ajax', 'confirm' => '确定要删除该场馆' ]) ?></div>
                 </div>
             </div>
             <div class="notice-block">
@@ -105,3 +108,12 @@ $this->title = "场馆主页";
     </div>
 </div>
 
+<?= Dialog::widget([
+    'clientOptions' => [
+        'modal' => true,
+        'autoOpen' => false,
+    ],
+    'options' => [
+        'id' => 'confirmDialog'
+    ]
+]);
