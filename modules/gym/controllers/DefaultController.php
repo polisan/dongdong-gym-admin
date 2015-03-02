@@ -22,11 +22,14 @@ class DefaultController extends NeedLoginController
      * 2、所有场地简略信息：包括场地种类名及场地数量（详见field_category表）
      * 3、所有教练简略信息：包含教练名，教练头像，性别，工作类型，运动类型（详见coach表）
      */
-    public function actionIndex($model)
+    public function actionIndex($id)
     {
 
-       // $model = new GymInfo();
+        $model = new GymInfo();
         //$model = $gymInfo->attributes;
+        if($id == null)
+            $id = $_GET['id'];
+        $model->attributes = $model->getInfoByID($id);
         $model->field = $model->getFiled();
         $model->coach = $model->getCoach();
         //echo $model['wechat'];

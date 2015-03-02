@@ -8,6 +8,7 @@ class MemberCardsController extends NeedLoginController
 {
     public function actionIndex()
     {
+
         return $this->render('index');
     }
 
