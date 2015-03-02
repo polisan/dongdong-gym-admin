@@ -43,7 +43,7 @@ class GymInfo extends  Model{
     public $support_membercard;
     public $field;
     public $coach;
-
+    public $gym_id;
 
     public $province;
     public $city;
@@ -88,7 +88,7 @@ class GymInfo extends  Model{
     public function getInfoByID($id)
     {
         $gym = new Gym();
-        //$gym = $gym->findById($id);
+        $gym = $gym->findById($id);
 
 
         if($gym != null) {
@@ -171,6 +171,7 @@ class GymInfo extends  Model{
         $gym->latitude = 4.5;
         $gym->longitude = 4.7;
         if($gym->save()) {
+            $this->gym_id = $gym->id;
             $sports = $this->sports;
             foreach ($sports as $sport) {
                 $gym_sports = new GymSports();
@@ -193,6 +194,7 @@ class GymInfo extends  Model{
         }
         else
         {
+            echo 'fial';
             return false;
         }
     }

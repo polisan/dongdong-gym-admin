@@ -22,14 +22,20 @@ class DefaultController extends Controller
      * 2、所有场地简略信息：包括场地种类名及场地数量（详见field_category表）
      * 3、所有教练简略信息：包含教练名，教练头像，性别，工作类型，运动类型（详见coach表）
      */
-    public function actionIndex()
+    public function actionIndex($model)
     {
 
-        $model = new GymInfo();
+       // $model = new GymInfo();
         //$model = $gymInfo->attributes;
         $model->field = $model->getFiled();
         $model->coach = $model->getCoach();
-        return $this->render('index', ['model' => $model]);
+        //echo $model['wechat'];
+        $gym_id = $model->gym_id;
+        echo $gym_id;
+        return $this->render('index', [
+            'model' => $model,
+            'gym_id' => $gym_id,
+        ]);
     }
 
     /** TODO: 编辑场馆信息
@@ -40,11 +46,11 @@ class DefaultController extends Controller
     public function actionEdit()
     {
         $model = new GymInfo();
+        $gym_id =$_GET['params'];
+        $model->attributes = $model->getInfoByID($gym_id);
         //$model = $gymInfo->attributes;
         $model->field = $model->getFiled();
         $model->coach = $model->getCoach();
-        //$provinces = Area::findProvinces();
-        $provinces = $model->province;
 
         $results = \Yii::$app->request->post();
         if($results)
@@ -61,19 +67,24 @@ class DefaultController extends Controller
             $model->wechat = $results['GymInfo']['wechat'];
             $model->sports = $results['GymInfo']['sports'];
             $model->saveGymInfo($GymUser_id);
-            $fieldCategory = new FieldCategory();
             $model->field = $model->getFiled();
-            $gymCourse = new GymCourseItem();
             $model->coach = $model->getCoach();
+           // $gym_id = $model->gym_id;
+            echo $gym_id;
             return $this->render('index',[
                 'model' => $model,
+                'gym_id' =>$gym_id,
                 //'provinces' => $provinceNames,
             ]);
         }
-
+        $provinces = Area::findProvinces();
+        $provinceNames[] = "请选择省份";
+        foreach ($provinces as $province) {
+            $provinceNames[$province['id']] = $province['name'];
+        }
         return $this->render('gym_edit', [
             'model' => $model,
-            'provinces'=>$provinces,
+            'provinces'=>$provinceNames,
         ]);
     }
 
@@ -107,19 +118,15 @@ class DefaultController extends Controller
             $model->wechat = $test['GymInfo']['wechat'];
             $model->sports = $test['GymInfo']['sports'];
             $model->saveGymInfo($GymUser_id);
-            $fieldCategory = new FieldCategory();
             $model->field = $model->getFiled();
-            $gymCourse = new GymCourseItem();
             $model->coach = $model->getCoach();
+            $gym_id = $model->gym_id;
             return $this->render('index',[
                 'model' => $model,
-               //'provinces' => $provinceNames,
+                'gym_id' => $gym_id,
             ]);
         }
         else {
-
-            echo 'index';
-
             return $this->render('gym_add', [
                 'model' => $model,
                 'provinces' => $provinceNames,

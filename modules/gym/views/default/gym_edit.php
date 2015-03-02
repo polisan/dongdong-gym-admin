@@ -32,12 +32,12 @@ $this->title = '场馆编辑';
                 <div class="col-md-9">
                     <div class="input-group clockpicker">
                         开始时间:
-                        <input type="text" class="form-control" value="09:30">
+                        <input type="text" name='begin_time' class="form-control" value="09:30">
                     </div>
                     <strong>&nbsp;&nbsp;</strong>
                     <div class="input-group clockpicker">
                         结束时间:
-                        <input type="text" class="form-control" value="09:30">
+                        <input type="text" name='end_time' class="form-control" value="09:30">
                     </div>
                 </div>
             </div>
@@ -50,21 +50,15 @@ $this->title = '场馆编辑';
                 </div>
                 <div class="col-md-9">
                     <?php
-                    $provinces = [
-                        'Beijing' => '北京',
-                        'Shanghai' => '上海',
-                        'Tianjin' => '天津',
-                        'Zhejiang' => '浙江',
-                    ];
-                    echo Html::dropDownList('province', 'Zhejiang', $provinces);
+                    echo Html::dropDownList('province', 0, $provinces);
                     echo "&nbsp;";
 
                     $citys = array(0 => '请选择城市');
                     echo Html::dropDownList('city', 0, $citys);
                     echo "&nbsp;";
 
-                    $districts = array(0 => '请选择区域');
-                    echo Html::dropDownList('district', 0, $districts);
+                    $county = array(0 => '请选择区域');
+                    echo Html::dropDownList('county', 0, $county);
                     ?>
                     <p></p>
                     <div class="">
